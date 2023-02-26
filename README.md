@@ -1,1 +1,1 @@
-# 30-d-as-de-JavaScript
+# 30-dias-de-JavaScript
