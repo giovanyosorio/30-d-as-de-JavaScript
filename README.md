@@ -121,3 +121,111 @@ const carro = {
 }
 ```
 Es importante tener cuidado al trabajar con punto y coma y llaves en JavaScript, ya que el olvido o el uso incorrecto de estos elementos puede llevar a errores en el código.
+
+# Tipos de datos
+En JavaScript, existen distintos tipos de datos que podemos utilizar para almacenar información. A continuación, presentamos una descripción de los más populares:
+
+## Numbers
+Los números son un tipo de dato que representa valores numéricos. En JavaScript, no existe un tipo de dato específico para representar números enteros o números con decimales, todos los números son tratados de la misma manera.
+
+Podemos crear números utilizando la notación numérica, que incluye dígitos y puede incluir un punto decimal para representar números con decimales.
+Ejemplo:
+```js
+const edad = 30;
+const pi = 3.14;
+const salario = 1500.50;
+```
+
+También podemos utilizar la notación científica para representar números muy grandes o muy pequeños.
+
+Ejemplo:
+
+```js
+const numeroGrande = 1e6; // 1 millón
+const numeroPequeño = 1e-6; // 0.000001
+```
+
+## Strings
+
+Las cadenas de texto (strings) son un tipo de dato que representa una secuencia de caracteres. En JavaScript, podemos crear strings utilizando comillas simples o comillas dobles.
+
+Ejemplo:
+```js
+const nombre = "Platzi";
+const apellido = 'Academy';
+```
+
+Podemos concatenar dos strings utilizando el operador +:
+```js
+console.log("Hola, " + nombre + " " + apellido + "!"); // "Hola, Platzi Academy!"
+```
+
+También podemos utilizar la notación template literal para crear strings que incluyen variables y expresiones:
+
+```js
+console.log(`Hola, ${nombre} ${apellido}!`); // "Hola, Platzi Academy!"
+```
+
+JavaScript proporciona una serie de métodos para manipular strings. Algunos de los métodos más comunes son:
+
+* ```length```: Devuelve la longitud de un string.
+* ```toUpperCase()```:: Devuelve el string en mayúsculas.
+* ```toLowerCase()```:: Devuelve el string en minúsculas.
+* ```substring()*```: Devuelve una parte del string.
+
+```js
+const nombre = "Platzi";
+
+console.log(nombre.length) // 6
+console.log(nombre.toUpperCase()) // PLATZI
+console.log(nombre.toLowerCase()) // platzi
+console.log(nombre.substring(0, 5)) // Platz
+```
+## Objects
+
+Los objetos son estructuras de datos que nos permiten almacenar un conjunto de pares clave-valor. Estos pares son conocidos como propiedades del objeto.
+
+Para crear un objeto, debemos utilizar las llaves {} y especificar las propiedades del objeto mediante la sintaxis nombrePropiedad: valorPropiedad. Los valores de las propiedades pueden ser de cualquier tipo de dato, incluyendo otros objetos.
+
+```js
+const persona = {
+  nombre: "Fulanita",
+  platziRank: 9567,
+	cursoFavorito: {
+		nombre: "Básico de JavaScript",
+		clases: 30,
+		duración: "2 horas"
+	}
+};
+```
+Para acceder a las propiedades de un objeto, podemos utilizar el operador . o la notación de corchetes ```[]```.
+
+Ejemplo:
+```js
+console.log(persona.nombre); // "Fulanita"
+console.log(persona.cursoFavorito.nombre); // "Básico de JavaScript"
+console.log(persona["platziRank"]); // 9567
+```
+
+## Booleanos
+Los valores booleanos (boolean) son un tipo de dato que representa un valor verdadero o falso. En JavaScript, podemos utilizar la palabra clave true para representar el valor verdadero y false para representar el valor falso.
+
+Ejemplo:
+```js
+const cursoCompletado = true;
+const lecturaCompletada = false;
+```
+
+No pasa nada si no recuerdas el tipo de dato con el que estás trabajando, dentro de JavaScript existe la instrucción typeof la cual te dirá el nombre del tipo de dato con el que estás trabajando
+
+Ejemplo:
+```js
+typeof "#PlatziChallenge" // "string"
+typeof 30 // number
+typeof true // boolean
+typeof {} // "object"
+
+// 👀 con los arrays nos devuelve que son un objeto
+// Más adelante descubriremos la razón
+typeof [] // "object"
+```
