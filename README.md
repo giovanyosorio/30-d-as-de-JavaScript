@@ -544,3 +544,18 @@ En este ejemplo, se establece una variable “calificacion” con un valor de 75
 
 La estructura de control switch permite ejecutar diferentes bloques de código en función de un valor específico. Es una alternativa a la estructura if-else para casos en los que hay varios valores posibles para una variable y se desea ejecutar diferentes acciones en función de cada valor manteniendo legible el código.
 
+La sintaxis básica de una estructura “switch” es la siguiente:
+
+```js
+switch (variable) {
+	case valor1:
+	  // código a ejecutar si variable es igual a valor1
+	  break;
+	case valor2:
+	  // código a ejecutar si variable es igual a valor2
+	  break;
+	default:
+	  // código a ejecutar si variable no es igual a ninguno de los valores anteriores
+}
+```
+
