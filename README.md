@@ -562,4 +562,19 @@ switch (variable) {
 La variable especificada en el “switch” se compara con cada uno de los casos especificados. Si se encuentra una coincidencia, se ejecutará el código dentro del bloque correspondiente. Es importante notar que se utiliza la palabra clave “break” al final de cada bloque de código para indicar que se debe salir del “switch” una vez que se ha ejecutado el código correspondiente. Si no se incluye “break”, el código seguirá ejecutándose en los siguientes casos.
 
 Por ejemplo, el siguiente código imprimirá un mensaje diferente en la consola dependiendo del valor de la variable “dia”:
-
+```js
+const dia = "lunes";
+switch (dia) {
+  case "lunes":
+    console.log("Hoy es lunes");
+    break;
+  case "martes":
+    console.log("Hoy es martes");
+    break;
+  case "miercoles":
+    console.log("Hoy es miércoles");
+    break;
+  default:
+    console.log("Hoy no es lunes, martes o miércoles");
+}
+```
