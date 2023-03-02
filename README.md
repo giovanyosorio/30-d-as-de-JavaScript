@@ -542,4 +542,5 @@ En este ejemplo, se establece una variable “calificacion” con un valor de 75
 
 ## Switch
 
+La estructura de control switch permite ejecutar diferentes bloques de código en función de un valor específico. Es una alternativa a la estructura if-else para casos en los que hay varios valores posibles para una variable y se desea ejecutar diferentes acciones en función de cada valor manteniendo legible el código.
 
