@@ -596,3 +596,6 @@ switch (true) {
 }
 ```
 
+control shift V ver markdown
+control shift P buscador
+control J ocultar y mostrar terminal

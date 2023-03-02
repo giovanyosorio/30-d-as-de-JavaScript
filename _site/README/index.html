@@ -1,0 +1,446 @@
+
+<h1>30-dias-de-JavaScript</h1>
+<p>Durante 6 semanas continuas estaremos aprendiendo desde 0 las características de JavaScript con la peculiaridad de aprender conceptos nuevos diariamente con ejercicios prácticos y cursos de tus profesores favoritos. Te estaremos acompañando en todo tu proceso de diferentes maneras, empezando por un canal exclusivo en Discord para participantes de este reto, al igual que tendremos sesiones semanales de Q&amp;A para despejarte tus dudas o ayudarte con algo en lo que te encuentres estancado o estancada.</p>
+<h1>Día 1</h1>
+<h2>Variables</h2>
+<p>Las <code>variables</code> son ubicaciones de almacenamiento en la memoria de la computadora que se utilizan para guardar valores que se pueden utilizar más tarde en el programa. En JavaScript, existen 3 formas de declarar variables: var, let y const.</p>
+<p>Las variables declaradas con var y let pueden cambiar su valor a lo largo del tiempo, mientras que las variables declaradas con constson constantes y no pueden cambiar su valor una vez asignado.</p>
+<p>Y en JavaScript las puedes usar de la siguiente forma:</p>
+<pre><code class="language-js">// Variables que pueden cambiar con el tiempo
+var edad = 30
+let hora = 12
+
+// Constante que no pueden cambiar
+const nombre = &quot;Platzi&quot;
+</code></pre>
+<p>En el ejemplo anterior declaramos e inicializamos todas las variables ¿Que quiere decir esto?</p>
+<p>Básicamente el proceso de  declarar una variable es especificar su nombre sin asignarle ningún valor, esto solo se puede hacer con variables (let y var) debido a que const al no poder cambiar su valor, no podremos inicializarla sin declararla al mismo tiempo.</p>
+<pre><code class="language-js">// Declaración
+var edad
+let hora
+</code></pre>
+<p>Mientras que el inicializar una variable es el asignarles cualquier valor.</p>
+<pre><code class="language-js">// Declaración
+var edad
+let hora
+
+// Inicialización
+edad = 30
+hora = 12
+
+// Declaración &amp; inicialización
+const name = &quot;Platzi&quot;
+</code></pre>
+<p>Como te habrás dado cuenta, en JavaScript, no es necesario declarar explícitamente el tipo de datos de una variable al asignarle un valor. En su lugar, el lenguaje determina el tipo de datos de la variable en tiempo de ejecución basándose en el valor que se le asigna. Esto hace que JavaScript sea un lenguaje débilmente tipado.</p>
+<p>Es importante tener cuidado al trabajar con variables débilmente tipadas, ya que pueden traer problemas si no mantienes las variables del tipo que esperas que sean. Por ejemplo, si intentas realizar una operación matemática con una variable que contiene un valor de texto en lugar de un número, obtendrás un error. Por lo tanto, es importante asegurarse de que las variables contengan los valores adecuados para el tipo de operación que se está realizando.</p>
+<h2>Funciones</h2>
+<p>Las funciones son una de las características más importantes y poderosas de JavaScript. Una función es un bloque de código que se puede reutilizar en diferentes partes de un programa.</p>
+<p>Las funciones se usan para realizar una tarea específica y pueden recibir uno o más argumentos (también conocidos como parámetros dependiendo la situación) y pueden devolver un valor como resultado.</p>
+<p>Para declarar una función en JavaScript, se utiliza la palabra clave function, seguida del nombre de la función y una lista de parámetros entre paréntesis. El cuerpo de la función se escribe entre llaves y contiene el código que se ejecutará cuando se llame a la función.</p>
+<pre><code class="language-js">function miFuncion(parametro1, parametro2) {
+  // Código de la función
+}
+</code></pre>
+<p>Para llamar a una función, simplemente escribes su nombre seguido de paréntesis.</p>
+<pre><code class="language-js">miFuncion(valor1, valor2);
+</code></pre>
+<p>Las funciones también pueden devolver un valor como resultado usando la palabra clave return. El valor devuelto se puede asignar a una variable o utilizar en una expresión.</p>
+<pre><code class="language-js">function suma(a, b) {
+  return a + b;
+}
+
+let resultado = suma(2, 3);
+console.log(resultado); // Imprime 5
+</code></pre>
+<p>Aunque esta es la forma tradicional que se le conoce como “Function declaration”en JavaScript existen otras 3 <a href="https://platzi.com/clases/1814-basico-javascript/26295-cuando-utilizar-una-funcion-declarativa-y-una-expr/">formas de hacer uso de funciones</a>.</p>
+<ol>
+<li>IIFE (Immediately Invoked Function Expression): una función que se autoejecuta inmediatamente después de ser definida. Esta función es anónima y no se puede reutilizar.</li>
+</ol>
+<pre><code class="language-js">(function () {
+  console.log(&quot;Soy una IIFE&quot;);
+})();
+</code></pre>
+<ol start="2">
+<li>Función expresión: una función que se define como una expresión y puede ser asignada a una variable. Esta función también puede ser llamada y reutilizada.</li>
+</ol>
+<pre><code class="language-js">let saluda = function () {
+  console.log(&quot;Hola&quot;);
+};
+
+saluda();
+</code></pre>
+<ol start="3">
+<li>Arrow function: una función que se define utilizando la sintaxis () =&gt;. Esta función es una forma más concisa de escribir funciones y es útil para funciones de una sola línea.</li>
+</ol>
+<pre><code class="language-js">let saluda = () =&gt; console.log(&quot;Hola&quot;);
+
+saluda();
+</code></pre>
+<h2>Sintaxis básica</h2>
+<p>Ya que conoces este par de conceptos de JavaScript es importante que tomes en cuenta los siguientes aspectos para no tener typos en tu código o errores comunes.</p>
+<h3>Punto y coma ;</h3>
+<p>El uso de punto y coma es totalmente opcional, a excepción de algunos casos especiales como en ciclos o cuando se quiere separar declaraciones en una misma línea.</p>
+<p>Un código así 👇</p>
+<pre><code class="language-js">const saludo = &quot;Hola&quot;
+const nombre = &quot;Platzi&quot;
+const saludoCompleto = saludo + &quot; &quot; + nombre
+console.log(saludoCompleto) // &quot;Hola Platzi&quot;
+</code></pre>
+<p>Hace exactamente lo mismo que el siguiente 👇</p>
+<pre><code class="language-js">const saludo = &quot;Hola&quot;;
+const nombre = &quot;Platzi&quot;;
+const saludoCompleto = saludo + &quot; &quot; + nombre;
+console.log(saludoCompleto); // &quot;Hola Platzi&quot;
+</code></pre>
+<p>Como consejo, si vas a usar el punto y coma desde un inicio trata de mantenerlo en cada linea para que por cuestiones de legibilidad se vea bien.</p>
+<h3>Corchetes o llaves {}</h3>
+<p>Las llaves {} se utilizan para encapsular bloques de código, funciones, bucles y otros elementos en JavaScript. También se utilizan para declarar objetos, un tipo de dato que veremos en la siguiente clase.</p>
+<pre><code class="language-js">const carro = {
+  color: &quot;rojo&quot;,
+  llantas: 4,
+  marca: &quot;Audi&quot;
+}
+</code></pre>
+<p>Es importante tener cuidado al trabajar con punto y coma y llaves en JavaScript, ya que el olvido o el uso incorrecto de estos elementos puede llevar a errores en el código.</p>
+<h1>Tipos de datos</h1>
+<p>En JavaScript, existen distintos tipos de datos que podemos utilizar para almacenar información. A continuación, presentamos una descripción de los más populares:</p>
+<h2>Numbers</h2>
+<p>Los números son un tipo de dato que representa valores numéricos. En JavaScript, no existe un tipo de dato específico para representar números enteros o números con decimales, todos los números son tratados de la misma manera.</p>
+<p>Podemos crear números utilizando la notación numérica, que incluye dígitos y puede incluir un punto decimal para representar números con decimales.
+Ejemplo:</p>
+<pre><code class="language-js">const edad = 30;
+const pi = 3.14;
+const salario = 1500.50;
+</code></pre>
+<p>También podemos utilizar la notación científica para representar números muy grandes o muy pequeños.</p>
+<p>Ejemplo:</p>
+<pre><code class="language-js">const numeroGrande = 1e6; // 1 millón
+const numeroPequeño = 1e-6; // 0.000001
+</code></pre>
+<h2>Strings</h2>
+<p>Las cadenas de texto (strings) son un tipo de dato que representa una secuencia de caracteres. En JavaScript, podemos crear strings utilizando comillas simples o comillas dobles.</p>
+<p>Ejemplo:</p>
+<pre><code class="language-js">const nombre = &quot;Platzi&quot;;
+const apellido = 'Academy';
+</code></pre>
+<p>Podemos concatenar dos strings utilizando el operador +:</p>
+<pre><code class="language-js">console.log(&quot;Hola, &quot; + nombre + &quot; &quot; + apellido + &quot;!&quot;); // &quot;Hola, Platzi Academy!&quot;
+</code></pre>
+<p>También podemos utilizar la notación template literal para crear strings que incluyen variables y expresiones:</p>
+<pre><code class="language-js">console.log(`Hola, ${nombre} ${apellido}!`); // &quot;Hola, Platzi Academy!&quot;
+</code></pre>
+<p>JavaScript proporciona una serie de métodos para manipular strings. Algunos de los métodos más comunes son:</p>
+<ul>
+<li><code>length</code>: Devuelve la longitud de un string.</li>
+<li><code>toUpperCase()</code>:: Devuelve el string en mayúsculas.</li>
+<li><code>toLowerCase()</code>:: Devuelve el string en minúsculas.</li>
+<li><code>substring()*</code>: Devuelve una parte del string.</li>
+</ul>
+<pre><code class="language-js">const nombre = &quot;Platzi&quot;;
+
+console.log(nombre.length) // 6
+console.log(nombre.toUpperCase()) // PLATZI
+console.log(nombre.toLowerCase()) // platzi
+console.log(nombre.substring(0, 5)) // Platz
+</code></pre>
+<h2>Objects</h2>
+<p>Los objetos son estructuras de datos que nos permiten almacenar un conjunto de pares clave-valor. Estos pares son conocidos como propiedades del objeto.</p>
+<p>Para crear un objeto, debemos utilizar las llaves {} y especificar las propiedades del objeto mediante la sintaxis nombrePropiedad: valorPropiedad. Los valores de las propiedades pueden ser de cualquier tipo de dato, incluyendo otros objetos.</p>
+<pre><code class="language-js">const persona = {
+  nombre: &quot;Fulanita&quot;,
+  platziRank: 9567,
+	cursoFavorito: {
+		nombre: &quot;Básico de JavaScript&quot;,
+		clases: 30,
+		duración: &quot;2 horas&quot;
+	}
+};
+</code></pre>
+<p>Para acceder a las propiedades de un objeto, podemos utilizar el operador . o la notación de corchetes <code>[]</code>.</p>
+<p>Ejemplo:</p>
+<pre><code class="language-js">console.log(persona.nombre); // &quot;Fulanita&quot;
+console.log(persona.cursoFavorito.nombre); // &quot;Básico de JavaScript&quot;
+console.log(persona[&quot;platziRank&quot;]); // 9567
+</code></pre>
+<h2>Booleanos</h2>
+<p>Los valores booleanos (boolean) son un tipo de dato que representa un valor verdadero o falso. En JavaScript, podemos utilizar la palabra clave true para representar el valor verdadero y false para representar el valor falso.</p>
+<p>Ejemplo:</p>
+<pre><code class="language-js">const cursoCompletado = true;
+const lecturaCompletada = false;
+</code></pre>
+<p>No pasa nada si no recuerdas el tipo de dato con el que estás trabajando, dentro de JavaScript existe la instrucción typeof la cual te dirá el nombre del tipo de dato con el que estás trabajando</p>
+<p>Ejemplo:</p>
+<pre><code class="language-js">typeof &quot;#PlatziChallenge&quot; // &quot;string&quot;
+typeof 30 // number
+typeof true // boolean
+typeof {} // &quot;object&quot;
+
+// 👀 con los arrays nos devuelve que son un objeto
+// Más adelante descubriremos la razón
+typeof [] // &quot;object&quot;
+</code></pre>
+<h2>Null</h2>
+<p>El valor null es un tipo de dato que representa un valor vacío o nulo. En JavaScript, podemos utilizar la palabra clave null para representar el valor nulo. A menudo, utilizamos null para representar un valor que aún no ha sido inicializado o para representar un valor que no tiene sentido en el contexto actual.</p>
+<p>Ejemplo:</p>
+<pre><code class="language-js">const nombre = null;
+console.log(nombre); // imprime &quot;null&quot;
+</code></pre>
+<h2>Undefined</h2>
+<p>El valor undefined es un tipo de dato que representa un valor que aún no ha sido asignado o que no tiene un valor válido. En JavaScript, podemos utilizar la palabra clave undefined para representar el valor undefined.</p>
+<p>Ejemplo:</p>
+<pre><code class="language-js">let nombre;
+console.log(nombre); // imprime &quot;undefined&quot;
+</code></pre>
+<h2>Diferencias entre Null y Undefined</h2>
+<p>Es importante tener en cuenta que null y undefined son valores diferentes en JavaScript. null representa un valor intencionalmente vacío, mientras que undefined representa un valor que aún no ha sido asignado o que no tiene un valor válido.</p>
+<p>Por ejemplo, podríamos utilizar null para representar que un gatito aún no tiene dueño:</p>
+<pre><code class="language-js">let gatito = {
+  nombre: &quot;Michi&quot;,
+  edad: 3,
+  dueño: null
+};
+
+console.log(gatito.dueño); // &quot;null&quot;
+</code></pre>
+<p>Por otro lado, podríamos utilizar undefined para representar que un gato aún no ha sido adoptado:</p>
+<pre><code class="language-js">let gato;
+console.log(gato); // &quot;undefined&quot;
+</code></pre>
+<p>Es importante tener en cuenta que null y undefined son valores diferentes en JavaScript y deben ser tratados de manera diferente.</p>
+<h2>Symbol</h2>
+<p>Los símbolos son un tipo de dato único en JavaScript que se utiliza para crear identificadores únicos. Cada vez que se crea un símbolo, se genera un nuevo identificador único, lo que lo hace ideal para usar como claves de objetos o para identificar elementos de manera única en una aplicación.</p>
+<p>Ejemplo:</p>
+<pre><code class="language-js">const simbolo = Symbol();
+
+let perrito = {
+  nombre: &quot;Firulais&quot;,
+  edad: 3,
+  [simbolo]: &quot;Identificador único&quot;
+};
+
+console.log(perrito[simbolo]); // &quot;Identificador único&quot;
+
+</code></pre>
+<p>También puedes proporcionar una descripción opcional al crear un símbolo, lo que puede ser útil para depurar y mantener el código:</p>
+<pre><code class="language-js">const simbolo = Symbol(&quot;Identificador único de gatitos&quot;);
+</code></pre>
+<p>Es importante tener en cuenta que los símbolos son valores únicos, lo que significa que dos símbolos creados de manera independiente nunca serán iguales, incluso si tienen la misma descripción. Esto hace que los símbolos sean ideales para usar como identificadores únicos en tus futuras aplicaciones.</p>
+<h2>BigInt</h2>
+<p>Los bigint son un nuevo tipo de dato en JavaScript que se usa para representar números enteros de un tamaño mayor al que puede manejar JavaScript de manera nativa. Los bigint se escriben con el sufijo n, por ejemplo: 12345678901234567890n.</p>
+<p>Aquí tienes un ejemplo de cómo usar bigint en JavaScript:</p>
+<pre><code class="language-js">const numeroGrande = 12345678901234567890n;
+
+console.log(numeroGrande + 1n); // 12345678901234567891n
+console.log(numeroGrande * 2n); // 2469135780246913578n
+console.log(numeroGrande / 3n); // 411218936707805260n
+</code></pre>
+<p>Es importante tener en cuenta que los bigint solo pueden ser usados para operaciones matemáticas y no pueden ser usados con operadores de comparación, como == o ===. En su lugar, debes usar los métodos BigInt.asIntN y BigInt.asUintN para hacer comparaciones entre bigint y números normales.</p>
+<p>También es importante tener en cuenta que los bigInt no son compatibles con todas las funciones y métodos de JavaScript que aceptan números, por lo que debes asegurarte de verificar la documentación de la función o método que quieres usar antes de intentar usar bigInt con ellos.</p>
+<h1>DIA 2</h1>
+<h2>Operadores</h2>
+<p>Los <code>operadores</code> son elementos de lenguaje que nos permiten realizar cálculos y comparaciones en JavaScript. Aquí hay una lista de los operadores más comunes:</p>
+<h3>Operadores aritméticos</h3>
+<p>Los operadores aritméticos nos permiten realizar operaciones matemáticas básicas, como la suma, la resta, la multiplicación y la división.</p>
+<pre><code class="language-js">// Suma
+console.log(1 + 2); // 3
+
+// Resta
+console.log(5 - 2); // 3
+
+// Multiplicación
+console.log(3 * 4); // 12
+
+// División
+console.log(10 / 2); // 5
+
+// Módulo (devuelve el resto de una división)
+console.log(10 % 3); // 1
+</code></pre>
+<h3>Operadores de asignación</h3>
+<p>Los operadores de asignación nos permiten asignar valores a variables.</p>
+<pre><code class="language-js">let x = 10;
+x += 5; // x = x + 5
+console.log(x); // 15
+
+x -= 3; // x = x - 3
+console.log(x); // 12
+
+x *= 2; // x = x * 2
+console.log(x); // 24
+
+x /= 4; // x = x / 4
+console.log(x); // 6
+</code></pre>
+<h3>Operadores de comparación</h3>
+<p>Los operadores de comparación nos permiten comparar valores y nos devuelven true o false según el resultado de la comparación.</p>
+<pre><code class="language-js">console.log(1 &lt; 2); // true
+console.log(2 &gt; 1); // true
+console.log(1 &lt;= 2); // true
+console.log(2 &gt;= 1); // true
+console.log(1 !== 2); // true
+</code></pre>
+<p>Entre estos existen 2 operadores de igualdad los cuales son <code>==</code> y <code>===</code>. El primero realiza una comparación de valor y el segundo, además de comparar el valor, también verifica el tipo de dato. Es recomendable utilizar siempre === ya que, en un lenguaje como JavaScript, que es debilmente tipado, comparar solo el valor puede llevar a resultados inesperados.</p>
+<pre><code class="language-js">console.log(1 == &quot;1&quot;) // true
+console.log(1 === &quot;1&quot;) // false
+</code></pre>
+<p>En el primer caso, <code>1 == &quot;1&quot;</code> devuelve <code>true</code> ya que solo se está comparando el valor y no el tipo de dato. Sin embargo, en el segundo caso, <code>1 === &quot;1&quot;</code> devuelve <code>false</code> ya que está comparando tanto el valor como el tipo de dato y, aunque ambos son iguales, uno es de tipo número y el otro de tipo string.</p>
+<h3>Operadores lógicos</h3>
+<p>Los operadores lógicos son aquellos que nos permiten realizar operaciones lógicas, es decir, comparaciones y evaluaciones. En JavaScript tenemos disponibles los siguientes operadores lógicos:</p>
+<ol>
+<li><code>AND (&amp;&amp;)</code>: Este operador lógico evalúa si ambas expresiones son verdaderas. Si ambas expresiones son verdaderas, devuelve true, de lo contrario, devuelve false. Por ejemplo:</li>
+</ol>
+<pre><code class="language-js">let edad = 25;
+let mayorDeEdad = edad &gt;= 18;
+
+if (edad &gt;= 18 &amp;&amp; mayorDeEdad) {
+  console.log(&quot;Eres mayor de edad&quot;);
+} else {
+  console.log(&quot;Aún eres menor de edad&quot;);
+}
+</code></pre>
+<ol start="2">
+<li><code>OR (||)</code>: Este operador lógico evalúa si al menos una de las expresiones es verdadera. Si al menos una de las expresiones es verdadera, devuelve true, de lo contrario, devuelve false. Por ejemplo:</li>
+</ol>
+<pre><code class="language-js">let edad = 25;
+let tieneIdentificacion = true;
+
+if (edad &gt;= 18 || tieneIdentificacion) {
+  console.log(&quot;Puedes entrar al bar&quot;);
+} else {
+  console.log(&quot;No tienes la edad o la identificación suficiente para entrar al bar&quot;);
+}
+</code></pre>
+<ol start="3">
+<li><code>NOT (!)</code>: Este operador lógico invierte el valor de la expresión. Si la expresión es verdadera, devuelve false, de lo contrario, devuelve true. Por ejemplo:</li>
+</ol>
+<pre><code class="language-js">let esFinDeSemana = true;
+
+if (!esFinDeSemana) {
+  console.log(&quot;A trabajar&quot;);
+} else {
+  console.log(&quot;A disfrutar del fin de semana&quot;);
+}
+</code></pre>
+<h2>Alcance de las variables</h2>
+<p>En JavaScript no todas las variables son iguales y es importante entender cómo funciona el alcance de las variables.</p>
+<p>En este lenguaje existen dos tipos de scope (alcance) de variables: global y local.</p>
+<p>Las variables declaradas fuera de cualquier función tienen alcance global, lo que significa que pueden ser accedidas y modificadas desde cualquier parte del código. Por otro lado, las variables declaradas dentro de una función tienen alcance local, lo que significa que solo pueden ser accedidas y modificadas dentro de esa función.</p>
+<p>Es importante tener en cuenta que cuando se declara una variable con var dentro de una función, esta variable tendrá alcance global, aunque esté dentro de una función. Sin embargo, si se declara con let o const, la variable tendrá alcance local.</p>
+<p>Otro concepto importante a entender es el de <code>hoisting</code>, que se refiere al comportamiento de javascript de mover las declaraciones de variables al inicio del ámbito en el que están declaradas. Esto significa que si se declara una variable dentro de una función, javascript la moverá al inicio de la función, incluso antes de que se ejecute cualquier línea de código dentro de la función.</p>
+<p>Por ejemplo, si tenemos el siguiente código:</p>
+<pre><code class="language-js">function miFuncion() {
+  console.log(x);
+  var x = 10;
+}
+
+miFuncion();
+</code></pre>
+<p>Javascript movería la declaración de x al inicio de miFuncion, lo que significa que la línea console.log(x) daría como resultado <code>undefined</code>, ya que x aún no ha sido inicializada en ese momento.</p>
+<h2>Hoisting y coerción</h2>
+<p>El hoisting es un comportamiento de JavaScript en el que las declaraciones de variables y funciones son movidas al comienzo del ámbito actual antes de que cualquier otro código sea ejecutado. Esto significa que las declaraciones de variables y funciones pueden ser utilizadas antes de haber sido declaradas en el código.</p>
+<p>Por ejemplo, si tenemos el siguiente código:</p>
+<pre><code class="language-js">console.log(x);
+var x = 5;
+</code></pre>
+<p>JavaScript interpreta este código como si estuviera escrito de la siguiente manera:</p>
+<pre><code class="language-js">var x;
+console.log(x);
+x = 5;
+</code></pre>
+<p>Esto significa que cuando se ejecuta el código, el valor de x será undefined en la primera línea, ya que la declaración de x ha sido movida al comienzo del ámbito.</p>
+<p>Sin embargo, es importante tener en cuenta que las asignaciones no son movidas al comienzo del ámbito, sólo las declaraciones. Esto significa que el siguiente código dará un error:</p>
+<pre><code class="language-js">console.log(x);
+x = 5;
+</code></pre>
+<p>Por otro lado, coercion es el proceso en el cual JavaScript intenta convertir automáticamente un valor de un tipo a otro, para que puedan ser comparados o operados. Esto puede dar lugar a algunos resultados inesperados si no se tiene en cuenta.</p>
+<p>Por ejemplo, si comparamos un número con un string:</p>
+<pre><code class="language-js">console.log(1 == &quot;1&quot;)
+</code></pre>
+<p>El resultado sería verdadero, ya que JavaScript intenta convertir el string “1” en el número 1 antes de compararlos.</p>
+<p>Otro ejemplo es el siguiente:</p>
+<pre><code class="language-js">console.log(true == 1)
+</code></pre>
+<p>Aquí, el valor booleano true es convertido en el número 1 antes de compararlos, dando como resultado verdadero.</p>
+<p>Es importante tener en cuenta estos comportamientos de JavaScript y asegurarse de que los valores estén en el tipo correcto antes de realizar comparaciones o operaciones. Esto puede ser logrado mediante funciones específicas de tipo o usando el operador estricto <code>===</code> en lugar del operador de igualdad <code>==</code>.</p>
+<h1>Día 3</h1>
+<h2>Condicionales</h2>
+<p>La <strong>estructura de control “if”</strong> sirve para tomar decisiones en función de si una determinada condición es verdadera o falsa. El código dentro de un bloque “if” sólo se ejecutará si la condición es verdadera, mientras que el código en un bloque “else” sólo se ejecutará si la condición es falsa.</p>
+<pre><code class="language-js">La sintaxis básica de una estructura “if” es la siguiente: 
+
+if (condicion) {
+  // código a ejecutar si la condición es verdadera
+} else {
+  // código a ejecutar si la condición es falsa
+}
+</code></pre>
+<p>Una de las formas más comunes de utilizar una estructura “if” es comparando una variable con un valor específico. Por ejemplo:</p>
+<pre><code class="language-js">let edad = 25;
+if (edad &gt;= 18) {
+  console.log(&quot;Eres mayor de edad&quot;);
+} else {
+  console.log(&quot;Eres menor de edad&quot;);
+}
+</code></pre>
+<p>En este ejemplo, se establece una variable “edad” con un valor de 25. Luego, se utiliza una estructura “if” para comprobar si la edad es mayor o igual a 18. Si es verdadero, se imprimirá “Eres mayor de edad” en la consola, de lo contrario, se imprimirá “Eres menor de edad”.</p>
+<p>También es posible utilizar varias condiciones en una estructura “if” utilizando la palabra clave “else if”. Por ejemplo:</p>
+<pre><code class="language-js">let calificacion = 75;
+
+if (calificacion &gt;= 90) {
+  console.log(&quot;Obtuviste una A&quot;);
+} else if (calificacion &gt;= 80) {
+  console.log(&quot;Obtuviste una B&quot;);
+} else if (calificacion &gt;= 70) {
+  console.log(&quot;Obtuviste una C&quot;);
+} else {
+  console.log(&quot;Obtuviste una calificación insuficiente&quot;);
+}
+</code></pre>
+<p>En este ejemplo, se establece una variable “calificacion” con un valor de 75. Luego, se utiliza una estructura “if-else if” para determinar en qué rango de calificación se encuentra. Si la calificación es mayor o igual a 90.</p>
+<h2>Switch</h2>
+<p>La estructura de control switch permite ejecutar diferentes bloques de código en función de un valor específico. Es una alternativa a la estructura if-else para casos en los que hay varios valores posibles para una variable y se desea ejecutar diferentes acciones en función de cada valor manteniendo legible el código.</p>
+<p>La sintaxis básica de una estructura “switch” es la siguiente:</p>
+<pre><code class="language-js">switch (variable) {
+	case valor1:
+	  // código a ejecutar si variable es igual a valor1
+	  break;
+	case valor2:
+	  // código a ejecutar si variable es igual a valor2
+	  break;
+	default:
+	  // código a ejecutar si variable no es igual a ninguno de los valores anteriores
+}
+</code></pre>
+<p>La variable especificada en el “switch” se compara con cada uno de los casos especificados. Si se encuentra una coincidencia, se ejecutará el código dentro del bloque correspondiente. Es importante notar que se utiliza la palabra clave “break” al final de cada bloque de código para indicar que se debe salir del “switch” una vez que se ha ejecutado el código correspondiente. Si no se incluye “break”, el código seguirá ejecutándose en los siguientes casos.</p>
+<p>Por ejemplo, el siguiente código imprimirá un mensaje diferente en la consola dependiendo del valor de la variable “dia”:</p>
+<pre><code class="language-js">const dia = &quot;lunes&quot;;
+switch (dia) {
+  case &quot;lunes&quot;:
+    console.log(&quot;Hoy es lunes&quot;);
+    break;
+  case &quot;martes&quot;:
+    console.log(&quot;Hoy es martes&quot;);
+    break;
+  case &quot;miercoles&quot;:
+    console.log(&quot;Hoy es miércoles&quot;);
+    break;
+  default:
+    console.log(&quot;Hoy no es lunes, martes o miércoles&quot;);
+}
+</code></pre>
+<p>En este ejemplo, la variable “dia” tiene un valor de “lunes”, por lo que se ejecutará el código dentro del primer bloque y se imprimirá “Hoy es lunes” en la consola. Si la variable “dia” tuviera un valor diferente, como “martes” o “miercoles”, se ejecutaría el código dentro del bloque correspondiente y se imprimiría el mensaje correspondiente en la consola. Si la variable “dia” tuviera un valor que no coincide con ninguno de los casos especificados, se ejecutaría el código dentro del bloque “default” y se imprimiría el mensaje “Hoy no es lunes, martes o miércoles” en la consola.</p>
+<p>También es posible hacer diferentes validaciones dentro los casos del switch. Por ejemplo:</p>
+<pre><code class="language-js">let numero = &quot;12&quot;;
+switch (true) {
+  case numero &gt; 100:
+    console.log(&quot;El valor es mayor a 100&quot;);
+    break;
+  case numero % 2 === 0:
+    console.log(&quot;El valor es multiplo de 2&quot;);
+    break;
+  default:
+    console.log(&quot;El valor no cumple con ninguna de las características&quot;);
+}
+</code></pre>
+<p>control shift V ver markdown
+control shift P buscador
+control J ocultar y mostrar terminal</p>
