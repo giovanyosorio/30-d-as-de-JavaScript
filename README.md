@@ -538,3 +538,8 @@ if (calificacion >= 90) {
 ```
 
 En este ejemplo, se establece una variable “calificacion” con un valor de 75. Luego, se utiliza una estructura “if-else if” para determinar en qué rango de calificación se encuentra. Si la calificación es mayor o igual a 90.
+
+
+## Switch
+
+
