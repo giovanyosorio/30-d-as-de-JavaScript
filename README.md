@@ -522,3 +522,17 @@ if (edad >= 18) {
 En este ejemplo, se establece una variable “edad” con un valor de 25. Luego, se utiliza una estructura “if” para comprobar si la edad es mayor o igual a 18. Si es verdadero, se imprimirá “Eres mayor de edad” en la consola, de lo contrario, se imprimirá “Eres menor de edad”.
 
 También es posible utilizar varias condiciones en una estructura “if” utilizando la palabra clave “else if”. Por ejemplo:
+
+```js
+let calificacion = 75;
+
+if (calificacion >= 90) {
+  console.log("Obtuviste una A");
+} else if (calificacion >= 80) {
+  console.log("Obtuviste una B");
+} else if (calificacion >= 70) {
+  console.log("Obtuviste una C");
+} else {
+  console.log("Obtuviste una calificación insuficiente");
+}
+```
