@@ -581,3 +581,17 @@ switch (dia) {
 En este ejemplo, la variable “dia” tiene un valor de “lunes”, por lo que se ejecutará el código dentro del primer bloque y se imprimirá “Hoy es lunes” en la consola. Si la variable “dia” tuviera un valor diferente, como “martes” o “miercoles”, se ejecutaría el código dentro del bloque correspondiente y se imprimiría el mensaje correspondiente en la consola. Si la variable “dia” tuviera un valor que no coincide con ninguno de los casos especificados, se ejecutaría el código dentro del bloque “default” y se imprimiría el mensaje “Hoy no es lunes, martes o miércoles” en la consola.
 
 También es posible hacer diferentes validaciones dentro los casos del switch. Por ejemplo:
+
+```js
+let numero = "12";
+switch (true) {
+  case numero > 100:
+    console.log("El valor es mayor a 100");
+    break;
+  case numero % 2 === 0:
+    console.log("El valor es multiplo de 2");
+    break;
+  default:
+    console.log("El valor no cumple con ninguna de las características");
+}
+```
