@@ -595,3 +595,4 @@ switch (true) {
     console.log("El valor no cumple con ninguna de las características");
 }
 ```
+
