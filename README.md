@@ -598,6 +598,57 @@ switch (true) {
 }
 ```
 
-control shift V ver markdown
-control shift P buscador
-control J ocultar y mostrar terminal
+# Ciclos
+
+Los ciclos son una herramienta esencial dentro de JavaScript. Sirven para repetir un bloque de código varias veces, dependiendo de una condición específica. Los ciclos son fundamentales para la automatización de tareas y la eficiencia en el código.
+
+Existen dos tipos de ciclos en JavaScript: los ciclos ```“for”``` y los ciclos ```“while”```. Ambos tienen una sintaxis similar, pero se utilizan en situaciones diferentes.
+
+El ciclo ```“for”``` es utilizado para repetir un bloque de código un número específico de veces. Su sintaxis básica es la siguiente:
+
+```js
+for (inicialización; condición; actualización) {
+  // código a ejecutar
+}
+```
+
+La inicialización se ejecuta una sola vez al principio del ciclo, la condición se evalúa en cada iteración antes de ejecutar el código dentro del ciclo y la actualización se ejecuta al final de cada iteración. Por ejemplo, el siguiente ciclo “for” imprimirá los números del 1 al 10 en la consola:
+```js
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 7
+// 8
+// 9
+// 10
+```
+
+También existen los ciclos **for-in** y ```for-of```. El ciclo for-in se utiliza para recorrer las propiedades de un objeto, mientras que el ciclo for-of se utiliza para recorrer los elementos de una colección como un array.
+
+El uso de un ciclo **“for in”** es la siguiente:
+```js
+const user = {
+	name: "Pepito",
+  age: 20,
+  role: "JavaScript developer"
+}
+
+for (const prop in user) {
+	console.log(user[prop])
+}
+
+// "Pepito"
+// 20
+// "JavaScript developer
+
+```
+
+En este ejemplo, se establece una variable ```“prop”``` que se utilizará para recorrer las propiedades del objeto. El valor de cada propiedad se imprimirá en la consola.
+
+Por otro lado, la sintaxis de un ciclo for-of es la siguiente:
