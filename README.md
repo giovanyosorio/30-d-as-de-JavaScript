@@ -489,4 +489,7 @@ console.log(true == 1)
 
 Aquí, el valor booleano true es convertido en el número 1 antes de compararlos, dando como resultado verdadero.
 
-Es importante tener en cuenta estos comportamientos de JavaScript y asegurarse de que los valores estén en el tipo correcto antes de realizar comparaciones o operaciones. Esto puede ser logrado mediante funciones específicas de tipo o usando el operador estricto === en lugar del operador de igualdad ==.
+Es importante tener en cuenta estos comportamientos de JavaScript y asegurarse de que los valores estén en el tipo correcto antes de realizar comparaciones o operaciones. Esto puede ser logrado mediante funciones específicas de tipo o usando el operador estricto ```===``` en lugar del operador de igualdad ```==```.
+
+
+# Día 3
