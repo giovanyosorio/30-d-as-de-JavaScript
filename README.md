@@ -493,3 +493,28 @@ Es importante tener en cuenta estos comportamientos de JavaScript y asegurarse d
 
 
 # Día 3
+
+## Condicionales
+
+La **estructura de control “if”** sirve para tomar decisiones en función de si una determinada condición es verdadera o falsa. El código dentro de un bloque “if” sólo se ejecutará si la condición es verdadera, mientras que el código en un bloque “else” sólo se ejecutará si la condición es falsa.
+
+```js
+La sintaxis básica de una estructura “if” es la siguiente: 
+
+if (condicion) {
+  // código a ejecutar si la condición es verdadera
+} else {
+  // código a ejecutar si la condición es falsa
+}
+```
+
+Una de las formas más comunes de utilizar una estructura “if” es comparando una variable con un valor específico. Por ejemplo:
+
+```js
+let edad = 25;
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+} else {
+  console.log("Eres menor de edad");
+}
+```
