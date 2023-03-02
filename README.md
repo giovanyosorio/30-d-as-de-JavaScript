@@ -652,3 +652,42 @@ for (const prop in user) {
 En este ejemplo, se establece una variable ```“prop”``` que se utilizará para recorrer las propiedades del objeto. El valor de cada propiedad se imprimirá en la consola.
 
 Por otro lado, la sintaxis de un ciclo for-of es la siguiente:
+```js
+const technologies = ["js", "html", "node", "php"]
+
+for (const element of technologies) {
+  console.log(element)
+}
+
+// "js"
+// "html"
+// "node"
+// "php"
+```
+
+En este ejemplo, se establece una variable “element” que se utilizará para recorrer cada elemento en el array. Cada valor se imprimirá en la consola.
+
+Por otro lado, el ciclo **while** se utiliza para repetir un bloque de código mientras se cumpla una determinada condición. Su sintaxis básica es la siguiente:
+```js
+while (condición) {
+  // código a ejecutar
+}
+```
+
+La condición se evalúa antes de ejecutar el código dentro del ciclo y si la condición es verdadera, el código se ejecutará de nuevo. Por ejemplo, si quisiéramos hacer una implementación del ejemplo anterior con los números del 1 al 10, quedaría de la siguiente manera:
+```js
+let i = 1;
+while (i <= 10){
+  console.log(i);
+  i++;
+}
+```
+
+Existe una extensión del ```while``` en javascript llamado ```do-while``` que tiene una pequeña diferencia, el código dentro del ciclo se ejecutará al menos una vez antes de evaluar la condición. Por ejemplo:
+```js
+let i = 1;
+do {
+	console.log(i);
+	i++;
+	} while (i <= 10);
+  ```
