@@ -700,29 +700,28 @@ Los arrays en JavaScript son un tipo de objeto que permite almacenar una colecci
 
 La sintaxis para crear un array en JavaScript es la siguiente:
 
-  ```js
-  let miArray = [valor1, valor2, valor3];
+```js
+  let miArray = [valor1, valor2, valor3]
   ```
   Por ejemplo, el siguiente código crea un array llamado “colores” que contiene tres valores: “rojo”, “azul” y “verde”:
     ```js
   let colores = ["rojo", "azul", "verde"];
     ```
     
-    Los arrays tienen un índice numérico que comienza en 0. Por lo tanto, el primer elemento del array tiene el índice 0, el segundo tiene el índice 1, y así sucesivamente. Por ejemplo, para acceder al primer elemento del array “colores”, se utilizaría la sintaxis ```colores[0]```.
+Los arrays tienen un índice numérico que comienza en 0. Por lo tanto, el primer elemento del array tiene el índice 0, el segundo tiene el índice 1, y así sucesivamente. Por ejemplo, para acceder al primer elemento del array “colores”, se utilizaría la sintaxis ```colores[0]```.
     
-    Uno de los métodos más populares en los arrays de JavaScript es ```push()```. Este método permite agregar un nuevo elemento al final del array. Por ejemplo:
-     ```js   
+ Uno de los métodos más populares en los arrays de JavaScript es ```push()```. Este método permite agregar un nuevo elemento al final del array. Por ejemplo:
+```js   
     colores.push("amarillo");
 console.log(colores); // ["rojo", "azul", "verde", "amarillo"]
-    ```
-    
-    Otro método popular es **pop()**, que permite eliminar el último elemento del array. Por ejemplo:
-      ```js     
+```
+ Otro método popular es **pop()**, que permite eliminar el último elemento del array. Por ejemplo:
+ ```js     
     colores.pop();
 console.log(colores); // ["rojo", "azul", "verde"]
-     ```
+```
      
-     El método **map()** permite aplicar una función a cada elemento del array y devolver un nuevo array con los valores modificados. Por ejemplo:
+El método **map()** permite aplicar una función a cada elemento del array y devolver un nuevo array con los valores modificados. Por ejemplo:
 ```js      
      const numeros = [1, 2, 3, 4, 5];
 const cuadrados = numeros.map(function(numero) {
@@ -730,4 +729,12 @@ const cuadrados = numeros.map(function(numero) {
 });
 console.log(cuadrados); // [1, 4, 9, 16, 25]
 ```
+El método “reduce()” permite combinar todos los elementos del array en un solo valor. Por ejemplo:
+```js 
+const suma = numeros.reduce(function(acumulador, numero) {
+  return acumulador + numero;
+}, 0);
+console.log(suma); // 15
+```
+
 
