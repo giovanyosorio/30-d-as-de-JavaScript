@@ -736,5 +736,6 @@ const suma = numeros.reduce(function(acumulador, numero) {
 }, 0);
 console.log(suma); // 15
 ```
+Existen muchos otros métodos populares en los arrays de JavaScript, como ```filter()```, ```sort()``` y ```slice()```, por los cuales no te debes preocupar por ahora, más adelante tendrás una sección completa acerca de estos métodos.
 
 
