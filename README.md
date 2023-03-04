@@ -787,3 +787,22 @@ carro.encender(); // "El carro ha sido encendido"
 ```
 
 JavaScript también tiene una característica llamada prototype, que permite agregar propiedades y métodos a un objeto de forma dinámica. Esto permite a los desarrolladores crear nuevos objetos a partir de objetos existentes y heredar sus propiedades y métodos, pero esto lo verás mucho más adelante, por el momento no tienes de que preocuparte.
+
+# Día 5 - Checkpoint
+En este desafío, debes crear una función que encuentre el palíndromo más largo en una lista de palabras.
+
+Recibirás un único parámetro: un array de palabras. Si no hay ningún palíndromo en la lista, la función debe devolver null. Si hay más de un palíndromo con la misma longitud máxima, debes devolver el primer palíndromo encontrado en la lista.
+
+Un palíndromo es una palabra que se puede leer de la misma manera tanto hacia adelante como hacia atrás.
+
+Ejemplo 1:
+
+Input: findLargestPalindrome(["racecar", "level", "world", "hello"])
+
+Output: "racecar"
+
+Ejemplo 2:
+
+Input: findLargestPalindrome(["Platzi", "javascript", "html", "css"])
+
+Output: null
