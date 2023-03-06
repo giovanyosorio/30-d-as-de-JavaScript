@@ -806,3 +806,9 @@ Ejemplo 2:
 Input: findLargestPalindrome(["Platzi", "javascript", "html", "css"])
 
 Output: null
+
+
+# Día 6
+
+## Reasignación y redeclaración
+
