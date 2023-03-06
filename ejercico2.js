@@ -27,3 +27,13 @@ getStudentAverage([
     },
   ])
   
+
+  let amoALuisa=true
+  
+  do {
+ console.log("💓te amo Pollita💓🐥🐤")
+  } while (amoALuisa);
+  
+  console.log("nunca te dejare de amar");
+  // Expected output: "12345"
+  
