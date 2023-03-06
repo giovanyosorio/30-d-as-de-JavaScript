@@ -812,3 +812,18 @@ Output: null
 
 ## Reasignación y redeclaración
 
+En JavaScript, la reasignación y la redeclaración son dos conceptos diferentes relacionados con las variables.
+
+Reasignación se refiere al proceso de darle un nuevo valor a una variable existente. Por ejemplo:
+```js
+let numero = 5;
+numero = 10;
+```
+
+En este ejemplo, la variable “numero” se ha reasignado con un nuevo valor de 10. Es importante notar solo su valor.
+
+Además, es importante mencionar que las variables declaradas con la palabra clave “const” no pueden ser reasignadas, ya que su valor es constante. Si se intenta reasignar una variable declarada con “const”, se generará un error en el código. Por ejemplo:
+```js
+const numero = 5;
+numero = 10; // Uncaught TypeError: invalid assignment to const
+```
