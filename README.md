@@ -827,3 +827,22 @@ Además, es importante mencionar que las variables declaradas con la palabra cla
 const numero = 5;
 numero = 10; // Uncaught TypeError: invalid assignment to const
 ```
+
+Por otro lado, redeclaración se refiere al proceso de crear una nueva variable con el mismo nombre de una variable existente. Por ejemplo:
+```js
+let numero = 5;
+let numero = 10;
+
+// Uncaught SyntaxError: redeclaration of let numero
+```
+
+En este ejemplo, se está intentando crear una nueva variable ```numero``` con un valor de 10, pero esto generará un error ya que no se puede redeclarar una variable con el mismo nombre en el mismo ámbito. Sin embargo, es posible redeclarar una variable utilizando la palabra clave ```var``` en lugar de ```let``` o ```const```.
+
+```js
+var numero = 5;
+var numero = 10;
+
+// Esto funciona sin problema ✅
+```
+
+Ten en cuenta que la reasignación y la redeclaración tienen implicaciones diferentes en el código y deben utilizarse con cuidado para evitar errores y confusiones en el código. Es recomendable utilizar ```let``` o ```const``` en lugar de ```var``` para evitar la redeclaración accidental de variables.
