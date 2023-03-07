@@ -17,3 +17,30 @@ myMap([
     (pet) => pet.name)
 
     myMap([1,2,3,4], (num) => num * 2)
+
+
+    function addNewAttr(array) {
+        // Tu código aquí 👈
+        return array.map((item) => {
+            const copyItem = {...item};
+            console.log(copyItem);
+            //copyItem.taxes = Math.trunc(copyItem.price * 0.19)
+           // return copyItem;
+          });
+            
+
+      }
+      
+
+      addNewAttr([
+        {
+          name: "Product 1",
+          price: 1000,
+          stock: 10
+        },
+        {
+          name: "Product 2",
+          price: 2000,
+          stock: 20
+        }
+      ])
