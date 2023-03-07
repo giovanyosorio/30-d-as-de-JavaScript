@@ -24,8 +24,8 @@ myMap([
         return array.map((item) => {
             const copyItem = {...item};
             console.log(copyItem);
-            //copyItem.taxes = Math.trunc(copyItem.price * 0.19)
-           // return copyItem;
+            copyItem.taxes = Math.trunc(copyItem.price * 0.19)
+           return copyItem;
           });
             
 
