@@ -1034,4 +1034,12 @@ console.log(numbers) // Output: [1, 2, 3, 4, 5]
 // El array original sigue intacto 
 ```
 
-Otra característica importante de las Higher-Order Functions es su capacidad para crear funciones más pequeñas y reutilizables. Por ejemplo, una función “filter” es una Higher-Order Function que toma una función y un array como argumentos, y devuelve un nuevo array con los elementos que cumplen con una determinada condición.
+Otra característica importante de las ```Higher-Order Functions``` es su capacidad para crear funciones más pequeñas y reutilizables. Por ejemplo, una función ```filter``` es una Higher-Order Function que toma una función y un array como argumentos, y devuelve un nuevo array con los elementos que cumplen con una determinada condición.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(function(number) {
+  return number % 2 === 0;
+});
+console.log(evenNumbers); // Output: [2,4]
+```
