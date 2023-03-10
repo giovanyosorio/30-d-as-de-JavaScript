@@ -1077,3 +1077,8 @@ La labor de TC39 se divide en varias etapas, las cuales son las siguientes:
 Además de las etapas mencionadas, ```TC39``` también se encarga de mantener la compatibilidad entre versiones, de manera que las nuevas características no rompan el código existente.
 
 ```TC39``` es el encargado de asegurar que javascript siga siendo un lenguaje de programación moderno y relevante. Los miembros de TC39 son expertos en javascript y sus decisiones afectan directamente a la forma en que se desarrolla el lenguaje y a las características que estarán disponibles en el futuro.
+
+
+# Día 10 - Checkpoint
+
+## ES6
