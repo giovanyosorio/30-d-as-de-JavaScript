@@ -1123,3 +1123,11 @@ console.log(dobles); // Output: [2, 4, 6, 8, 10]
 const numeros = [1, 2, 3];
 const nuevosNumeros = [...numeros, 4, 5, 6]; // [1, 2, 3, 4, 5, 6]
 ```
+
+* Destructuring: ES6 introduce una nueva sintaxis para asignar valores de un objeto o un array a variables de manera más sencilla y legible. Ejemplo:
+```js
+const persona = {nombre: "Juan", edad: 30};
+const {nombre, edad} = persona;
+console.log(nombre); // Output: "Juan"
+console.log(edad); // Output: 30
+```
