@@ -1152,3 +1152,13 @@ const miPromesa = new Promise((resolve, reject) => {
 });
 miPromesa.finally(() => console.log('Promesa finalizada'));
 ```
+
+* Try catch: En cuanto al manejo de errores y excepciones, ES6 incluye la introducción de la palabra clave “try-catch” para el manejo de bloques de código que pueden generar excepciones.
+
+```js
+try {
+  // código que puede generar excepciones
+} catch (error) {
+  console.log(error);
+}
+```
