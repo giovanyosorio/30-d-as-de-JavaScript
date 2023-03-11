@@ -1108,3 +1108,4 @@ const nombre = "Juan";
 const edad = 30;
 console.log(`Hola, mi nombre es ${nombre} y tengo ${edad} años.`); // Output: "Hola, mi nombre es Juan y tengo 30 años."
 ```
+
