@@ -1131,3 +1131,10 @@ const {nombre, edad} = persona;
 console.log(nombre); // Output: "Juan"
 console.log(edad); // Output: 30
 ```
+* Manejo de módulos: ES6 permite la importación y exportación de funciones y variables entre archivos de manera más sencilla y estructurada. Por ejemplo:
+
+```js
+import { miFuncion } from './miArchivo.js';
+
+export const otraFuncion = () => {};
+```
