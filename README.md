@@ -1082,3 +1082,7 @@ Además de las etapas mencionadas, ```TC39``` también se encarga de mantener la
 # Día 10 - Checkpoint
 
 ## ES6
+
+ECMAScript 6, también conocido como ES6, fue lanzado en junio de 2015 y trae una gran cantidad de características nuevas y mejoras al lenguaje. Algunas de las características más importantes incluyen:
+
+* Sintaxis de clases: ES6 introduce una nueva sintaxis para la creación de clases en JavaScript. Esto hace que el código sea más fácil de leer y entender, especialmente para desarrolladores con experiencia en lenguajes orientados a objetos. Ejemplo:
