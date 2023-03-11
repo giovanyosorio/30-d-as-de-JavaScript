@@ -1086,3 +1086,17 @@ Además de las etapas mencionadas, ```TC39``` también se encarga de mantener la
 ECMAScript 6, también conocido como ES6, fue lanzado en junio de 2015 y trae una gran cantidad de características nuevas y mejoras al lenguaje. Algunas de las características más importantes incluyen:
 
 * Sintaxis de clases: ES6 introduce una nueva sintaxis para la creación de clases en JavaScript. Esto hace que el código sea más fácil de leer y entender, especialmente para desarrolladores con experiencia en lenguajes orientados a objetos. Ejemplo:
+
+```js
+class Persona {
+  constructor(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+  }
+  saludar() {
+    console.log(`Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`);
+  }
+}
+const persona = new Persona("Juan", 30);
+persona.saludar(); // Output: "Hola, mi nombre es Juan y tengo 30 años."
+```
