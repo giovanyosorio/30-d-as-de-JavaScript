@@ -1100,3 +1100,11 @@ class Persona {
 const persona = new Persona("Juan", 30);
 persona.saludar(); // Output: "Hola, mi nombre es Juan y tengo 30 años."
 ```
+
+* Template literals: ES6 introduce una nueva sintaxis para crear cadenas de texto de manera más sencilla y legible. Esto permite la interpolación de variables y expresiones dentro de las cadenas de texto. Ejemplo:
+
+```js
+const nombre = "Juan";
+const edad = 30;
+console.log(`Hola, mi nombre es ${nombre} y tengo ${edad} años.`); // Output: "Hola, mi nombre es Juan y tengo 30 años."
+```
