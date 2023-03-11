@@ -1116,3 +1116,10 @@ const numeros = [1, 2, 3, 4, 5];
 const dobles = numeros.map(n => n * 2);
 console.log(dobles); // Output: [2, 4, 6, 8, 10]
 ```
+
+* Spread operator: El spread operator es una característica que permite expandir un array o un objeto en una lista de valores. Se representa con los tres puntos (…) y se utiliza para copiar elementos de un array o para combinar elementos de varios arrays en uno solo. También se utiliza para pasar argumentos a una función de manera dinámica. Ejemplo:
+
+```js
+const numeros = [1, 2, 3];
+const nuevosNumeros = [...numeros, 4, 5, 6]; // [1, 2, 3, 4, 5, 6]
+```
