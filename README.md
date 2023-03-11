@@ -1138,3 +1138,9 @@ import { miFuncion } from './miArchivo.js';
 
 export const otraFuncion = () => {};
 ```
+* Nuevos métodos de arrays: ES6 incluye métodos como “Array.prototype.find” y “Array.prototype.findIndex” que facilitan la búsqueda de elementos en un array.
+```js
+const numeros = [1, 2, 3, 4, 5];
+const encontrado = numeros.find(n => n === 3);
+console.log(encontrado); // Output: 3
+```
