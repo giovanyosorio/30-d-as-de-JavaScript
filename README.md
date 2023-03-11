@@ -1109,3 +1109,10 @@ const edad = 30;
 console.log(`Hola, mi nombre es ${nombre} y tengo ${edad} años.`); // Output: "Hola, mi nombre es Juan y tengo 30 años."
 ```
 
+* Arrow functions: ES6 introduce una nueva sintaxis para crear funciones anónimas de manera más corta y sencilla. Esto hace que el código sea más legible y fácil de escribir. Ejemplo:
+
+```js
+const numeros = [1, 2, 3, 4, 5];
+const dobles = numeros.map(n => n * 2);
+console.log(dobles); // Output: [2, 4, 6, 8, 10]
+```
