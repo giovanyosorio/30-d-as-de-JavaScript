@@ -1162,3 +1162,13 @@ try {
   console.log(error);
 }
 ```
+
+## ES7
+
+ECMAScript 7, también conocido como ES7, es una versión del estándar ECMAScript para JavaScript. Fue lanzado en junio de 2016 y trae algunas características nuevas y mejoras al lenguaje. Algunas de las características más importantes incluyen:
+
+* Exponentiation operator (**): ES7 introduce un nuevo operador para elevar un número a una potencia. Anteriormente, esto podría ser logrado con la función Math.pow(). Ejemplo:
+```js
+console.log(2 ** 3); // Output: 8
+console.log(Math.pow(2,3)); // Output: 8
+```
