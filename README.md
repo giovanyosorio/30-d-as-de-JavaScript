@@ -1172,3 +1172,10 @@ ECMAScript 7, también conocido como ES7, es una versión del estándar ECMAScri
 console.log(2 ** 3); // Output: 8
 console.log(Math.pow(2,3)); // Output: 8
 ```
+
+* Trailing commas: ES7 permite la utilización de comas al final de una lista de argumentos, objetos y arrays. Este es un cambio sintáctico que ayuda a la legibilidad y mantenimiento del código. Ejemplo:
+```js
+const objeto = {nombre: "Juan", edad: 30,};
+const array = [1, 2, 3,];
+//El poner una coma al final de un array u objetos ocasionaba errores en el pasado
+```
