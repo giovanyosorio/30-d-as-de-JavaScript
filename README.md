@@ -1189,3 +1189,6 @@ console.log(cadena.padStart(7, "**")); // Output: "****Hola"
 *****console.log(cadena.padEnd(7, "*")); // Output: "Hola****"
 ```
 Cada año sale una nueva versión de ES, en esta colección de lecturas solamente te mostramos 2 que tuvieron muchos grandes cambios. Te invitamos a que indagues más en las futuras versiones que salen cada año.
+
+# Día 11
+
