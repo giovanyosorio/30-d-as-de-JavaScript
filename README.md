@@ -1144,7 +1144,7 @@ const numeros = [1, 2, 3, 4, 5];
 const encontrado = numeros.find(n => n === 3);
 console.log(encontrado); // Output: 3
 ```
-* Manejo de promesas: ES6 incluye mejoras en el manejo de promesas, permitiendo la utilización de métodos como “Promise.prototype.finally” para ejecutar código independientemente del resultado de la promesa.
+* Manejo de promesas: ES6 incluye mejoras en el manejo de promesas, permitiendo la utilización de métodos como ```Promise.prototype.finally``` para ejecutar código independientemente del resultado de la promesa.
 
 ```js
 const miPromesa = new Promise((resolve, reject) => {
