@@ -1392,3 +1392,7 @@ operation1()
     // Manejar errores
   });
   ```
+
+  En este ejemplo, cada operación devuelve una Promesa que se encadena usando el método then(). Esto hace que el código sea más legible y fácil de seguir en comparación con la versión anterior.
+
+### Async/await
