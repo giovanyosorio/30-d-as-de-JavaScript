@@ -1299,5 +1299,32 @@ En este ejemplo, la función ```wait()``` toma un argumento ms, que representa e
 
 Cuando se llama a wait(2000), se crea una nueva promesa que se resolverá después de 2 segundos. Después de que se resuelva la promesa, se llama a la función then() y se ejecuta la función de devolución de llamada, que simplemente registra con la variable seconds que es devuelta al resolverse la promesa un mensaje en la consola.
 
+También podemos usar setTimeout() en conjunto con reject() para manejar errores en una tarea asincrónica. Si ocurre un error durante la ejecución de la tarea, podemos llamar a reject() con un objeto de error para indicar que la tarea ha fallado.
 
 
+Un ejemplo de promesa con setTimeout() que maneja errores podría verse así:
+
+```js
+function wait(ms) {
+  return new Promise((resolve, reject) => {
+    if (ms < 0) {
+      reject(new Error("El número de milisegundos no puede ser negativo"));
+    } else {
+      setTimeout(() => {
+				const seconds = ms / 1000
+        resolve(seconds);
+      }, ms);
+    }
+  });
+}
+
+// ejemplo de uso
+wait(-2000)
+  .then((seconds) => {
+    console.log(`Han pasado ${seconds} segundos`);
+  })
+  .catch((error) => {
+    console.error(error.message);
+		// El número de milisegundos no puede ser negativo
+  });
+```
