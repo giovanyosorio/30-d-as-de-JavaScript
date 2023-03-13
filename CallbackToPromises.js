@@ -1,29 +1,9 @@
-import {
-    doTask1,
-    doTask2,
-    doTask3
-} from './tasks';
-
-export function runCode() {
+export async function runCode() {
     const strings = [];
-    return doTask1()
-        .then(res => {
-            strings.push(res)
-            return doTask2();
-        })
-        .then(res => {
-            strings.push(res)
-            return doTask3();
-        })
-        .then(res => {
-            strings.push(res)
-            return strings
-        })
-        .catch(error => {
-            console.log(error)
-        });
+
+    strings.push(await doTask1());
+    strings.push(await doTask2());
+    strings.push(await doTask3());
+
+    return strings;
 }
-
-
-runCode()
-    .then(response => console.log(response));
