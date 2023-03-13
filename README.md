@@ -1371,3 +1371,4 @@ operation1(function(result1) {
 ```
 En este ejemplo, la ejecución de operation2 depende del resultado de operation1, y la ejecución de operation3 depende del resultado de operation2, y así sucesivamente. Como se puede ver, el código se vuelve cada vez más anidado y difícil de leer a medida que se agregan más operaciones.
 
+### Promesas
