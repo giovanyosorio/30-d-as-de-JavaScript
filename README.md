@@ -1192,3 +1192,47 @@ Cada año sale una nueva versión de ES, en esta colección de lecturas solament
 
 # Día 11
 
+## Asincronismo
+
+JavaScript es un lenguaje asíncrono, lo que significa que las operaciones no bloquean el hilo de ejecución principal. Esto significa que varias operaciones pueden ocurrir al mismo tiempo sin afectar el rendimiento del programa. En lugar de bloquear el hilo de ejecución mientras se carga la imagen, el navegador carga la imagen en segundo plano y notifica al programa cuando está lista para ser utilizada mediante una función callback.
+
+## Promesas
+
+Las promesas son un mecanismo para manejar operaciones asincrónicas en JavaScript de una manera más limpia y fácil de leer. Permiten que una función asíncrona devuelva una promesa, que es básicamente una forma de representar un valor que estará disponible en el futuro, ya sea de manera exitosa o con un error.
+
+Para crear una promesa, se utiliza el constructor ```Promise```, el cual acepta una función que a su vez recibe dos parámetros: ```resolve``` y ```reject```.
+
+ El primero se usa para indicar que la operación se ha completado correctamente y se puede obtener el valor, mientras que el segundo se usa para indicar que la operación ha fallado y se devuelve el error correspondiente.
+
+ Por ejemplo, podemos crear una promesa que resuelva (o devuelva) con el número 42 después de 2 segundos:
+```js
+ const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(42);
+  }, 2000);
+});
+```
+
+Podemos encadenar promesas para ejecutar múltiples operaciones asincrónicas de manera secuencial. Para ello, se utiliza el método then de una promesa, el cual recibe como parámetro una función que se ejecutará cuando la promesa se resuelva correctamente. Esta función puede devolver otra promesa, lo que permite encadenar múltiples operaciones.
+
+Por ejemplo, podemos crear una promesa que resuelva con un objeto que contenga el número 42 y una cadena después de 2 segundos, y luego encadenar otra promesa que devuelva una cadena que contenga el doble del número de la promesa anterior:
+
+```js
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve({ number: 42, text: "hello" });
+  }, 2000);
+});
+
+promise
+  .then((result) => {
+    const doubledNumber = result.number * 2;
+    return doubledNumber.toString();
+  })
+  .then((result) => {
+    console.log(`The result is ${result}`);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+  ```
