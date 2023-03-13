@@ -1290,10 +1290,14 @@ function wait(ms) {
 }
 
 // ejemplo de uso
-wait(2000).then((seconds) => {
+wait(3000).then((seconds) => {
   console.log(`Han pasado ${seconds} segundos`);
 });
 ```
 
 En este ejemplo, la función ```wait()``` toma un argumento ms, que representa el número de milisegundos que se deben esperar antes de resolver la promesa. Dentro del constructor new Promise(), se llama a setTimeout() para crear una tarea asincrónica que llamará a resolve() después del número de milisegundos especificado. La función wait() devuelve la promesa creada.
+
+Cuando se llama a wait(2000), se crea una nueva promesa que se resolverá después de 2 segundos. Después de que se resuelva la promesa, se llama a la función then() y se ejecuta la función de devolución de llamada, que simplemente registra con la variable seconds que es devuelta al resolverse la promesa un mensaje en la consola.
+
+
 
