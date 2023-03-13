@@ -1330,3 +1330,44 @@ wait(-2000)
 ```
 
 En este ejemplo, la función wait() verifica si el argumento ms es menor que cero. Si es así, se llama a reject() con un objeto de error que indica que el número de milisegundos es inválido. Si ms es mayor o igual a cero, se llama a setTimeout() para crear la tarea asincrónica que llamará a resolve() después del número de milisegundos especificado. La función wait() devuelve la promesa creada.
+
+## Manejando el asincronismo
+
+Las promesas son una característica importante de JavaScript para manejar operaciones asíncronas y controlar su flujo. Pero, ¿cómo se manejan las promesas en el código de forma eficiente y efectiva? Vamos a discutir dos formas populares de manejar promesas: mediante callbacks y mediante async/await.
+
+### Callback
+
+Los callbacks son funciones que se pasan como argumentos a otra función y se llaman en algún momento después de que se complete la operación asíncrona. Un callback es una forma de manejar la respuesta de una promesa.
+
+```js
+function getUserData(userId, callback) {
+  fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    .then(response => response.json())
+    .then(data => callback(data))
+    .catch(error => console.log(error))
+}
+
+function displayUserData(data) {
+  console.log(data.name);
+}
+
+getUserData(1, displayUserData);
+```
+En este ejemplo, se define una función getUserData que toma un ID de usuario y un callback como parámetros. Dentro de esta función, se llama a la API de jsonplaceholder y se obtiene el objeto de datos del usuario. Luego, se llama al callback con los datos del usuario como argumento. En este caso, el callback es la función displayUserData que simplemente muestra el nombre del usuario en la consola.
+
+La desventaja de usar callbacks es que puedes crear un ```Callback Hell```, que es un anti-patrón producido por anidar múltiples callbacks dentro de otros callbacks en un código asíncrono. Esto puede ocurrir cuando un código asíncrono necesita realizar múltiples operaciones de manera secuencial, donde la ejecución de una operación depende de los resultados de la operación anterior. Este anti-patrón puede hacer que el código sea difícil de entender, mantener y depurar.
+
+Un ejemplo del Callback Hell puede ser el siguiente, donde se realiza una serie de operaciones asíncronas anidadas que dependen de los resultados de la operación anterior:
+```js
+operation1(function(result1) {
+  operation2(result1, function(result2) {
+    operation3(result2, function(result3) {
+      operation4(result3, function(result4) {
+        // ...continuar con más operaciones
+      });
+    });
+  });
+});
+```
+En este ejemplo, la ejecución de operation2 depende del resultado de operation1, y la ejecución de operation3 depende del resultado de operation2, y así sucesivamente. Como se puede ver, el código se vuelve cada vez más anidado y difícil de leer a medida que se agregan más operaciones.
+
