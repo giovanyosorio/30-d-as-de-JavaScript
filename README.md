@@ -1417,3 +1417,6 @@ async function displayUserData(userId) {
 displayUserData(1);
 
 ```
+
+En este ejemplo, se define una función getUserData que hace la misma llamada a la API que en el ejemplo anterior, pero esta vez usa await para esperar la respuesta y el try/catch para manejar los errores. La función displayUserData también utiliza await para esperar que se resuelva la promesa retornada por getUserData y luego muestra el nombre del usuario en la consola.
+
