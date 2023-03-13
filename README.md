@@ -1396,3 +1396,24 @@ operation1()
   En este ejemplo, cada operación devuelve una Promesa que se encadena usando el método then(). Esto hace que el código sea más legible y fácil de seguir en comparación con la versión anterior.
 
 ### Async/await
+
+Async/await es una forma más moderna y legible de manejar promesas. En lugar de usar callbacks anidados, async/await permite que el código parezca más secuencial y fácil de leer.
+```js
+async function getUserData(userId) {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function displayUserData(userId) {
+  const data = await getUserData(userId);
+  console.log(data.name);
+}
+
+displayUserData(1);
+
+```
