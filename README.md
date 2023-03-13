@@ -1372,3 +1372,23 @@ operation1(function(result1) {
 En este ejemplo, la ejecución de operation2 depende del resultado de operation1, y la ejecución de operation3 depende del resultado de operation2, y así sucesivamente. Como se puede ver, el código se vuelve cada vez más anidado y difícil de leer a medida que se agregan más operaciones.
 
 ### Promesas
+
+Una forma de evitar el Callback Hell es utilizar Promesas o Async/Await, que proporcionan una forma más estructurada y fácil de leer para manejar código asíncrono. Por ejemplo, el código anterior se puede reescribir utilizando Promesas de la siguiente manera:
+```js
+operation1()
+  .then(result1 => {
+    return operation2(result1);
+  })
+  .then(result2 => {
+    return operation3(result2);
+  })
+  .then(result3 => {
+    return operation4(result3);
+  })
+  .then(result4 => {
+    // ...continuar con más operaciones
+  })
+  .catch(error => {
+    // Manejar errores
+  });
+  ```
