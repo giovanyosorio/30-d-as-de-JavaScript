@@ -1236,3 +1236,61 @@ promise
     console.error(error);
   });
   ```
+
+  ## setInterval y setTimeout
+
+Los temporizadores son una característica importante en JavaScript para programar tareas para que se ejecuten en el futuro. Dos de los temporizadores más comunes son setTimeout y setInterval.
+
+setTimeout es una función que permite programar una tarea para que se ejecute después de un cierto período de tiempo en milisegundos. La función toma dos parámetros: la función que se debe ejecutar después del tiempo especificado y el tiempo en milisegundos antes de que se ejecute la función.
+
+Por ejemplo, supongamos que queremos imprimir un mensaje después de 5 segundos. Podemos usar setTimeout de la siguiente manera:
+```js
+setTimeout(() => {
+  console.log('Han pasado 5 segundos');
+}, 5000);
+```
+
+Es importante tener en cuenta que setTimeout() devuelve un identificador único (un número) que puede ser utilizado para cancelar el temporizador antes de que se ejecute. Para hacer esto, podemos usar la función clearTimeout() y pasarle el identificador como argumento. Por ejemplo:
+```js
+let id = setTimeout(() => {
+  console.log('Han pasado 5 segundos');
+}, 5000);
+
+// Cancelar el temporizador
+clearTimeout(id);
+```
+
+Otro temporizador común es setInterval. En contraste con setTimeout, setInterval se utiliza para programar una tarea para que se repita en un intervalo de tiempo determinado. La función toma dos parámetros: la función que se debe ejecutar en cada intervalo y la duración de cada intervalo en milisegundos.
+
+Por ejemplo, supongamos que queremos imprimir un mensaje cada 2 segundos. Podemos usar setInterval de la siguiente manera:
+
+```js
+setInterval(() => {
+  console.log('Han pasado 2 segundos');
+}, 2000);
+```
+
+Esto imprimirá “Han pasado 2 segundos” cada 2 segundos.
+
+Es importante tener en cuenta que tanto setTimeout como setInterval son funciones asincrónicas. Esto significa que no bloquean la ejecución del código, lo que permite que otras tareas se ejecuten mientras se espera que se complete la tarea programada.
+
+Para trabajar con temporizadores en conjunto con promesas, debes entender cómo se puede utilizar el método ```setTimeout()``` dentro de una promesa para crear una tarea asincrónica que se resolverá o rechazará después de un período de tiempo determinado.
+
+Al crear una promesa con ```setTimeout()```, podemos utilizar el constructor new ```Promise()```. La función interna debe contener el código que se ejecutará en el futuro y, finalmente, llamará a ```resolve()``` o ```reject()``` para indicar si la tarea se completó correctamente o no.
+
+Un ejemplo de promesa con setTimeout() podría verse así:
+```js
+function wait(ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+			const seconds = ms / 1000
+      resolve(seconds);
+    }, ms);
+  });
+}
+
+// ejemplo de uso
+wait(2000).then((seconds) => {
+  console.log(`Han pasado ${seconds} segundos`);
+});
+```
