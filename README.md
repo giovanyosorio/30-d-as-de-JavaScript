@@ -1705,3 +1705,21 @@ Como se puede ver en el ejemplo anterior, el método Array.prototype.includes se
 
 Además de poder buscar elementos primitivos, como números y cadenas, el método Array.prototype.includes también puede buscar objetos y otros tipos de datos. Sin embargo, es importante tener en cuenta que para objetos y otros tipos de datos, la búsqueda se realiza utilizando la comparación de igualdad estricta (===), lo que significa que sólo se considerarán iguales dos objetos si se refieren a la misma ubicación en memoria.
 
+### Array.protoype.join()
+El método Array.prototype.join() se utiliza para convertir todos los elementos de un array en un solo string. Este método recibe como argumento un separador, que es una cadena de texto que se utilizará para separar los elementos del arreglo en el string resultante.
+
+Por ejemplo, si tenemos un arreglo fruits con los siguientes elementos: ["apple", "banana", "cherry"], podemos convertir este arreglo en un string usando el método join como se muestra a continuación:
+```js
+const fruits = ["apple", "banana", "cherry"];
+const fruitsString = fruits.join(", ");
+console.log(fruitsString); // "apple, banana, cherry"
+```
+
+En este ejemplo, el separador que se utiliza es una coma y un espacio (, ), pero podemos usar cualquier otra cadena de texto como separador. Si no se proporciona un separador, se usará una coma (,) por defecto.
+```js
+const fruits = ["apple", "banana", "cherry"];
+const fruitsString = fruits.join();
+console.log(fruitsString); // "apple,banana,cherry"
+```
+Es importante destacar que el método join no modifica directamente el arreglo original, sino que retorna una nueva cadena de texto con los elementos del array original.
+
