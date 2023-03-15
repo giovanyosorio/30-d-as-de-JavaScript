@@ -1630,3 +1630,56 @@ console.log(allHaveName);
 
 El método every es una herramienta útil para comprobar si todos los elementos en un array cumplen con una determinada condición. Es una forma sencilla y eficiente de procesar los elementos en un array y realizar tareas específicas en ellos.
 
+### Array.prototype.Find()
+El método find se puede utilizar en arrays para encontrar un elemento que cumpla con una condición determinada. Este método devuelve el primer elemento que cumple con la condición o undefined si no se encuentra ninguno.
+
+El método find toma un callback como argumento. Este callback es llamado para cada elemento del array hasta que se encuentre un elemento que cumpla con la condición.
+
+Aquí hay un ejemplo de cómo utilizar el método find para encontrar el primer número mayor que 5 en un array:
+```js
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const result = numbers.find(number => number > 5);
+
+console.log(result);
+// Output: 6
+```
+
+En este ejemplo, el callback number => number > 5 se utiliza para determinar si un número es mayor que 5. Si se encuentra un número que cumpla con esta condición, el método find devuelve ese número y detiene la búsqueda.
+
+También es posible utilizar el método find con objetos. Por ejemplo, aquí hay un ejemplo de cómo utilizar el método find para encontrar el primer objeto con una propiedad específica:
+```js
+const people = [
+  { name: 'John', age: 32 },
+  { name: 'Jane', age: 28 },
+  { name: 'Jim', age: 40 }
+];
+const result = people.find(person => person.age === 32);
+
+console.log(result);
+// Output: { name: 'John', age: 32 }
+```
+
+En este ejemplo, el callback person => person.age === 32 se utiliza para determinar si una persona tiene una edad de 32 años. Si se encuentra un objeto que cumpla con esta condición, el método find devuelve ese objeto y detiene la búsqueda.
+
+### Array.prototype.findIndex()
+El método findIndex es una función que se utiliza para buscar un elemento en un array y devolver el índice de su primera aparición. Este método acepta un callback como argumento y la ejecuta para cada elemento en el array hasta que se encuentra un elemento que cumpla con la condición especificada. En ese momento, findIndex devuelve el índice del elemento encontrado.
+
+A diferencia del método find, en este caso, solo se devuelve el primer indice del elemento que cumpla la condición, por ejemplo:
+```js
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const index = numbers.findIndex(num => num > 5);
+console.log(index); // Output: 5
+```
+
+En este ejemplo, la función de callback recibe cada elemento del array numbers y devuelve true si el elemento es mayor que 5. El método findIndex devuelve el índice del primer elemento que cumple con esta condición, que es 5.
+
+Si no se encuentra ningún elemento que cumpla con la condición, findIndex devuelve -1. Por ejemplo:
+
+```js
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const index = numbers.findIndex(num => num > 100);
+console.log(index); // Output: -1
+```
+
+En este ejemplo, no hay ningún elemento en el array numbers que sea mayor que 100, por lo que findIndex devuelve -1.
+
