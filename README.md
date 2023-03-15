@@ -1683,3 +1683,25 @@ console.log(index); // Output: -1
 
 En este ejemplo, no hay ningún elemento en el array numbers que sea mayor que 100, por lo que findIndex devuelve -1.
 
+#  Día 13
+
+## Métodos de arrays: Includes, Join y concat
+
+### Array.protoype.includes()
+El método Array.prototype.includes es una función para determinar si un elemento determinado existe en un array. Este método es muy útil a la hora de verificar si un elemento específico está presente en un array o no, sin tener que recorrer todo el array.
+Este método acepta dos parámetros: el primer parámetro es el elemento que se quiere buscar y el segundo parámetro es el índice desde donde se iniciará la búsqueda. Si el segundo parámetro no se proporciona, la búsqueda comenzará desde el índice 0.
+
+El método includes devuelve un valor booleano que indica si el elemento buscado se encuentra o no en el array. Si el elemento se encuentra en el array, el valor devuelto será true, de lo contrario, el valor será false.
+
+Ejemplo
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+const result = numbers.includes(3);
+
+console.log(result); // true
+```
+Como se puede ver en el ejemplo anterior, el método Array.prototype.includes se utiliza para determinar si el elemento 3 está presente en el array numbers. La función devuelve un valor booleano de true, lo que indica que el elemento se encuentra en el array.
+
+Además de poder buscar elementos primitivos, como números y cadenas, el método Array.prototype.includes también puede buscar objetos y otros tipos de datos. Sin embargo, es importante tener en cuenta que para objetos y otros tipos de datos, la búsqueda se realiza utilizando la comparación de igualdad estricta (===), lo que significa que sólo se considerarán iguales dos objetos si se refieren a la misma ubicación en memoria.
+
