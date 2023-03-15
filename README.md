@@ -1723,3 +1723,29 @@ console.log(fruitsString); // "apple,banana,cherry"
 ```
 Es importante destacar que el método join no modifica directamente el arreglo original, sino que retorna una nueva cadena de texto con los elementos del array original.
 
+### Array.protoype.concat()
+El método Array.prototype.concat() se utiliza para combinar dos o más arrays en uno solo. Este método no modifica los arrays originales, sino que devuelve un nuevo array con los elementos de los arrays originales concatenados.
+
+
+La sintaxis de la función concat() es la siguiente:
+```js
+array1.concat(array2, array3, ..., arrayX)
+```
+
+Donde array1 es el array que llama a la función, y array2, array3, …, arrayX son los arrays que se desean concatenar.
+
+Además de arrays, también se pueden concatenar otros valores, como números, cadenas de texto, objetos, etc. Estos valores se añadirán al final del nuevo array como elementos individuales.
+
+Por ejemplo:
+```js
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const string = "hello";
+const number = 123;
+
+const result = array1.concat(array2,string,number);
+
+console.log(result); // [1, 2, 3, 4, 5, 6, "hello"]
+```
+En este ejemplo, se crean dos arrays, array1, array2, string y number se concatenan utilizando la función concat(). El resultado es un nuevo array, result, que contiene los elementos de ambos arrays originales con el string y el número.
+
