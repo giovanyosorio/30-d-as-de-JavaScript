@@ -1654,8 +1654,8 @@ const people = [
   { name: 'Jim', age: 40 }
 ];
 const result = people.find(person => person.age === 32);
-
-console.log(result);
+l
+console.log(typeof people );
 // Output: { name: 'John', age: 32 }
 ```
 
