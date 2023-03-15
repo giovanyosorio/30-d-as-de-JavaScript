@@ -1589,3 +1589,44 @@ Como puedes ver, los arrays de más dimensiones siguen la misma lógica de los a
 
 
 
+## Métodos de arrays: Every, Find y findIndex
+
+### Array.prototype.every()
+El método every es una función que se utiliza en los arrays en JavaScript para comprobar si todos los elementos del array cumplen con una determinada condición. Devuelve un valor booleano que indica si todos los elementos del array cumplen con la condición especificada.
+
+Por ejemplo, supongamos que tienes un array de números y deseas comprobar si todos los números son mayores que cero:
+```js
+const numbers = [1, 2, 3, 4, 5];
+const allPositive = numbers.every(function(element) {
+	return element > 0;
+});
+
+console.log(allPositive);
+
+// Output: true
+```
+En este ejemplo, el método every se utiliza para comprobar si todos los elementos en el array numbers son mayores que cero. La función que se pasa como argumento a every devuelve true si el elemento es mayor que cero y false en caso contrario. Si todos los elementos devuelven true, every devuelve true. De lo contrario, devuelve false.
+
+También puedes utilizar una arrow function para hacer lo mismo:
+```js
+const numbers = [1, 2, 3, 4, 5];
+const allPositive = numbers.every((element) =>
+	 element > 0;
+);
+
+console.log(allPositive);
+```
+
+Además de comprobar si todos los elementos cumplen con una determinada condición, también puedes utilizar el método every para realizar otras tareas en cada elemento del array. Por ejemplo, supongamos que tienes un array de objetos y deseas comprobar si todos los objetos tienen una propiedad específica:
+```js
+const objects = [{name: 'John'}, {name: 'Jane'}, {name: 'Jim'}];
+const allHaveName = objects.every(function(element) {
+  return element.hasOwnProperty('name');
+});
+
+console.log(allHaveName);
+// Output: true
+```
+
+El método every es una herramienta útil para comprobar si todos los elementos en un array cumplen con una determinada condición. Es una forma sencilla y eficiente de procesar los elementos en un array y realizar tareas específicas en ellos.
+
