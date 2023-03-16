@@ -1775,3 +1775,41 @@ console.log(flatArray); // [1, 2, 3, 4, [5, 6], 7, 8, 9]
 ```
 En este ejemplo, el arreglo multidimensional multiDimensionalArray se aplanó hasta una profundidad de anidamiento de 1 utilizando el método Array.prototype.flat(1). Esto significa que solo se aplanaron los arreglos de nivel más externo, por lo que el arreglo dentro del arreglo [5, 6] se mantuvo intacto.
 
+### Array.prototype.flatMap()
+
+El método Array.prototype.flatMap() combina las funcionalidades de los métodos Array.prototype.map() y Array.prototype.flat() en uno solo. Para transformar cada elemento del arreglo, luego aplana el resultado hasta obtener un único arreglo con los elementos resultantes.
+
+Este método se aplica a un objeto Array y toma como argumento una función que se aplicará a cada elemento del arreglo. La función aplicada a cada elemento devuelve un nuevo arreglo, y flatMap aplana este arreglo resultante en un único arreglo.
+
+Ejemplo de cómo se puede usar flatMap:
+```js
+const numbers = [1, 2, 3, 4];
+const result = numbers.flatMap(x => [x, x * 2]);
+console.log(result);
+// Output: [1, 2, 2, 4, 3, 6, 4, 8]
+```
+
+En este ejemplo, la función x => [x, x * 2] se aplica a cada elemento del arreglo numbers. Cada elemento del arreglo numbers es multiplicado por 2 y los dos valores se almacenan en un nuevo arreglo. Luego, el método flatMap aplana todos los arreglos resultantes en un único arreglo.
+
+Además de transformar y aplanar arreglos, flatMap también puede ser útil para eliminar elementos null o undefined de un arreglo. Aquí hay un ejemplo de cómo se puede hacer esto:
+```js
+const values = [1, 2, 3, null, 4, undefined, 5];
+
+const result = values.flatMap(x => x);
+
+console.log(result);
+// Output: [1, 2, 3, 4, 5]
+```
+
+Al igual que el método flat() este nos puede ayudar a trabajar con arrays bidimensionales
+
+Ejemplo
+```js
+const bidimensionalArray = [[1, 2, 3], [4, 5, 6]];
+const result = bidimensionalArray.flatMap(x => x);
+console.log(result);
+// Output: [1, 2, 3, 4, 5, 6]
+```
+
+El método flatMap aplana cada subarreglo dentro del arreglo bidimensionalArray en un único arreglo resultante. De esta manera, podemos trabajar con arreglos bidimensionales de manera más fácil y eficiente.
+
