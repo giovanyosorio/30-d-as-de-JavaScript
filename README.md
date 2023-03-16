@@ -1749,3 +1749,29 @@ console.log(result); // [1, 2, 3, 4, 5, 6, "hello"]
 ```
 En este ejemplo, se crean dos arrays, array1, array2, string y number se concatenan utilizando la función concat(). El resultado es un nuevo array, result, que contiene los elementos de ambos arrays originales con el string y el número.
 
+## Métodos de arrays: Flat y FlatMap
+
+### Array.prototype.flat()
+
+El método Array.prototype.flat() permite combinar varios arreglos en un solo arreglo plano (sin niveles adicionales de anidamiento). Este método es útil cuando se trabaja con arreglos multidimensionales y se desea obtener una sola secuencia de elementos en un solo arreglo.
+
+Este método puede aceptar un argumento opcional, que indica la profundidad de anidamiento máxima hasta la cual se deben aplanar los arreglos. Si no se proporciona un argumento, el método aplanará los arreglos hasta el nivel más profundo.
+
+A continuación se muestra un ejemplo de código que utiliza el método Array.prototype.flat() para aplanar un arreglo multidimensional:
+```js
+const multiDimensionalArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+const flatArray = multiDimensionalArray.flat();
+console.log(flatArray); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+En este ejemplo, el arreglo multidimensional multiDimensionalArray se aplanó utilizando el método Array.prototype.flat() y se guardó en la variable flatArray. Luego, se imprime en la consola el valor de flatArray y se puede ver que se trata de un arreglo plano con los elementos del arreglo multidimensional combinados en una sola secuencia.
+
+Además, también es posible aplanar un arreglo multidimensional hasta una profundidad específica utilizando el argumento opcional. Por ejemplo:
+
+```js
+const multiDimensionalArray = [[1, 2, 3], [4, [5, 6]], [7, 8, 9]];
+const flatArray = multiDimensionalArray.flat(1);
+console.log(flatArray); // [1, 2, 3, 4, [5, 6], 7, 8, 9]
+```
+En este ejemplo, el arreglo multidimensional multiDimensionalArray se aplanó hasta una profundidad de anidamiento de 1 utilizando el método Array.prototype.flat(1). Esto significa que solo se aplanaron los arreglos de nivel más externo, por lo que el arreglo dentro del arreglo [5, 6] se mantuvo intacto.
+
