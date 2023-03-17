@@ -1816,3 +1816,8 @@ El método flatMap aplana cada subarreglo dentro del arreglo bidimensionalArray 
 # Día 14
 
 ## Mutable functions
+
+Las funciones mutables en JavaScript son aquellas que pueden modificar el estado de los objetos. En oposición a las funciones inmutables, que no pueden modificar el estado de los objetos y devuelven un nuevo objeto con los cambios.
+
+Las funciones mutables son comúnmente utilizadas para manipular arrays y objetos. Algunos ejemplos de funciones mutables en JavaScript incluyen Array.prototype.push(), Array.prototype.pop(), Array.prototype.shift(), Array.prototype.unshift(), Array.prototype.splice() y Object.assign().
+
