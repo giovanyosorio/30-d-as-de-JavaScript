@@ -1813,3 +1813,6 @@ console.log(result);
 
 El método flatMap aplana cada subarreglo dentro del arreglo bidimensionalArray en un único arreglo resultante. De esta manera, podemos trabajar con arreglos bidimensionales de manera más fácil y eficiente.
 
+# Día 14
+
+## Mutable functions
