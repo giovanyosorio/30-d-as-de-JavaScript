@@ -1950,3 +1950,5 @@ console.log(people);
 
 En este ejemplo, la función de comparación (a, b) => a.age - b.age se utiliza para ordenar los objetos en el arreglo people por su edad.
 
+# Día 15 - Checkpoint
+
