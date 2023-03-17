@@ -1824,3 +1824,39 @@ Las funciones mutables son comúnmente utilizadas para manipular arrays y objeto
 Es importante tener en cuenta que las funciones mutables pueden tener efectos secundarios, ya que modifican el estado de los objetos. Por lo tanto, es importante utilizarlas de manera consciente y tener cuidado al trabajar con ellas.
 
 Por ejemplo, supongamos que tenemos un array llamado ```numbers``` que contiene los números 1, 2, 3 y 4. Si usamos la función mutable ```Array.prototype.push()``` para agregar un nuevo número al final del array, e estado del array ```numbers``` cambiará.
+```js
+const numbers = [1, 2, 3, 4];
+numbers.push(5);
+console.log(numbers);
+// Output: [1, 2, 3, 4, 5]
+```
+
+Como se puede ver en este ejemplo, el método push() ha modificado el estado del array “numbers” al agregar un nuevo número al final del array.
+
+Por otro lado, si usamos una función inmutable como Array.prototype.concat() para agregar un nuevo número al array “numbers”, el estado del array “numbers” no cambiará. En su lugar, se devolverá un nuevo array con los cambios.
+
+```js
+const numbers = [1, 2, 3, 4];
+const newNumbers = numbers.concat([5]);
+console.log(numbers);
+// Output: [1, 2, 3, 4]
+console.log(newNumbers);
+// Output: [1, 2, 3, 4, 5]
+```
+También se pueden usar mutable functions para modificar objetos de la misma manera:
+```js
+const person = {
+	name: 'John Doe',
+	age: 30
+};
+
+function addProperty(object, key, value) {
+	object[key] = value;
+}
+
+addProperty(person, 'address', '123 Main St');
+
+console.log(person);
+
+// Output: { name: 'John Doe', age: 30, address: '123 Main St' }
+```
