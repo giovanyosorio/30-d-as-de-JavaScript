@@ -1952,3 +1952,4 @@ En este ejemplo, la función de comparación (a, b) => a.age - b.age se utiliza 
 
 # Día 15 - Checkpoint
 
+# Día 16 
