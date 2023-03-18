@@ -1953,3 +1953,9 @@ En este ejemplo, la función de comparación (a, b) => a.age - b.age se utiliza 
 # Día 15 - Checkpoint
 
 # Día 16 
+
+## Programación orientada a objetos en JavaScript
+
+La programación orientada a objetos (POO) es un paradigma de programación que se enfoca en el uso de objetos para representar conceptos del mundo real y manipular datos. JavaScript es un lenguaje orientado a objetos basado en prototipos, lo que significa que los objetos en JavaScript tienen una relación de prototipo entre ellos, en lugar de tener una relación de clase como en lenguajes como Java o C#.
+
+
