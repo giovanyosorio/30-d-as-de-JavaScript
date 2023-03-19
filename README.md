@@ -1960,4 +1960,24 @@ La programación orientada a objetos (POO) es un paradigma de programación que 
 
 
 Una de las principales diferencias entre JavaScript y otros lenguajes orientados a objetos es el uso de clases en lugar de prototipos. Aunque JavaScript no tiene una sintaxis específica para definir clases, a partir de ECMAScript 6 se pueden utilizar las palabras clave “class” y “extends” para simular una estructura de clase. Sin embargo, debajo de esta sintaxis se sigue utilizando prototipos para la herencia. Por ejemplo:
+```js
+class Animal {
+    constructor(especie) {
+        this.especie = especie;
+    }
+    respirar() {
+        console.log("Respirando...");
+    }
+}
 
+class Perro extends Animal {
+    ladrar() {
+        console.log("Guau!");
+    }
+}
+
+const perro = new Perro("Canino");
+console.log(perro.especie); // Output: "Canino"
+perro.respirar(); // Output: "Respirando..."
+perro.ladrar(); // Output: "Guau!"
+```
