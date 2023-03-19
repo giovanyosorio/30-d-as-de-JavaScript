@@ -1959,3 +1959,5 @@ En este ejemplo, la función de comparación (a, b) => a.age - b.age se utiliza 
 La programación orientada a objetos (POO) es un paradigma de programación que se enfoca en el uso de objetos para representar conceptos del mundo real y manipular datos. JavaScript es un lenguaje orientado a objetos basado en prototipos, lo que significa que los objetos en JavaScript tienen una relación de prototipo entre ellos, en lugar de tener una relación de clase como en lenguajes como Java o C#.
 
 
+Una de las principales diferencias entre JavaScript y otros lenguajes orientados a objetos es el uso de clases en lugar de prototipos. Aunque JavaScript no tiene una sintaxis específica para definir clases, a partir de ECMAScript 6 se pueden utilizar las palabras clave “class” y “extends” para simular una estructura de clase. Sin embargo, debajo de esta sintaxis se sigue utilizando prototipos para la herencia. Por ejemplo:
+
