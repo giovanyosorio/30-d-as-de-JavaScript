@@ -1981,3 +1981,109 @@ console.log(perro.especie); // Output: "Canino"
 perro.respirar(); // Output: "Respirando..."
 perro.ladrar(); // Output: "Guau!"
 ```
+
+Como habrás visto, en este pequeño ejemplo hay muchas keywords nuevas como: new, this, extends, constructor. Posiblemente sea tu primer acercamiento a estos conceptos, por lo que es momento de entender cada uno de estos.
+
+Empecemos por ```this``` , this se refiere al objeto actual en el cual se está ejecutando un método o accediendo a una propiedad. En una función constructora, this se refiere al nuevo objeto que se está creando. Por ejemplo:
+
+```js
+function Animal(especie) {
+  // Función constructora
+  this.especie = especie;
+}
+
+Animal.prototype.respirar = function() {
+  // En este scope no existe "especie"
+	// Pero con "this" estamos accediendo directamente a "Animal"
+	// Por lo que esto vendría siendo "Animal.especie"
+  console.log(`La especie ${this.especie} está respirando...`);
+}
+
+const perro = new Animal("Canino");
+perro.respirar(); // Output: "La especie Canino está respirando..."
+```
+
+Este ejemplo es muy parecido al anterior, básicamente es lo que hace JavaScript para convertir las clases en prototipos, si bien ahora existen las clases como lo viste al principio de esta lectura, debes de comprender como funciona el lenguaje por debajo sin toda esa sugar syntax.
+
+Con clases, esto se vería mejor 👇
+```js
+// TODAS las clases empizan por mayúscula por convención
+class Animal{
+	constructor(especie){
+		// Con clases la función constructora es más explicita, aquí se asignan
+    // los valores recibidos
+		// Parecido a las funciones, se recibe como parametro cualquier valor necesario
+		// y lo pasamos al scope de la clase con "this.valor = valor"
+		this.especie = especie
+	}
+
+	respirar(){
+		// Directamente podemos crear los métodos dentro de las clases
+		// básicamente una función cualquier pero sin la keyword "function"
+		console.log(`La especie ${this.especie} está respirando...`)
+	}	
+}
+
+const perro = new Animal("Canino");
+perro.respirar(); // Output: "La especie Canino está respirando..."
+```
+
+Pero ambas practicas, vienen siendo igual a lo que modifica el prototype.
+
+Ahora, cuando estamos declarando la variable perro usamos la keyword new que se usa para crear una nueva instancia de una función constructora. Cuando se usa new con una función constructora, se crea un nuevo objeto, se establece su prototipo y se ejecuta el código dentro de la función constructora con this apuntando al nuevo objeto. Por ejemplo:
+```js
+// Aquí estamos creando una copia de la clase Animal o mejor dicho creando una instancia
+// Por lo que perro, es una instancia de Animal que tiene como especie el valor de "Canino"
+const perro = new Animal("Canino"); 
+// De esta manera podemos acceder a todos los métodos creados en la clase
+perro.respirar(); // Output: "La especie Canino está respirando..."
+```
+
+Solo falta conocer un concepto nuevo, extends
+```js
+class Perro extends Animal {
+		// Aquí no es necesario el agregar el constructor si no se esperan
+		// nuevos parametros
+    ladrar() {
+        console.log("Guau!");
+    }
+}
+```
+Esto se le conoce como una subclase, que se refiere a una clase que hereda de otra clase.
+
+La keyword extends nos ayuda a copiar todo de la clase que extiende a la nueva clase y así evitar ser redundante y tener una buena jerarquía. Por lo que anterior viene siendo igual a lo siguiente
+```js
+class Perro {
+		constructor(especie) {
+        this.especie = especie;
+    }
+    respirar() {
+        console.log("Respirando...");
+    }
+    ladrar() {
+        console.log("Guau!");
+    }
+}
+```
+
+Y la forma que es interpretada por JavaScript es de la siguiente manera
+
+```js
+const animal = {
+  respirar: function() {
+    console.log("Respirando...");
+  }
+};
+
+const perro = Object.create(animal);
+
+perro.ladrar = function() {
+  console.log("Guau!");
+}
+
+perro.respirar(); // Output: "Respirando..."
+perro.ladrar(); // Output: "Guau!"
+```
+
+Object.create() que se usa para crear un nuevo objeto con un prototipo específico. Este método recibe un objeto como primer parámetro y devuelve un nuevo objeto con ese objeto como su prototipo.
+
