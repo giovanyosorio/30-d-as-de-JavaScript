@@ -2087,3 +2087,79 @@ perro.ladrar(); // Output: "Guau!"
 
 Object.create() que se usa para crear un nuevo objeto con un prototipo específico. Este método recibe un objeto como primer parámetro y devuelve un nuevo objeto con ese objeto como su prototipo.
 
+## Objetos literales
+
+Los objetos literales en JavaScript son una forma de almacenar y manipular datos en el lenguaje. Un objeto literal es un conjunto de pares clave-valor que se encierran entre llaves {}. Los objetos literales pueden contener cualquier tipo de dato, desde números, strings, booleanos, hasta funciones y otros objetos.
+
+Uno de los métodos más comunes para manipular objetos literales es Object.assign(). Este método permite copiar las propiedades de un objeto a otro. Por ejemplo:
+```js
+const objeto1 = {a: 1, b: 2};
+const objeto2 = {c: 3, d: 4};
+// Object.assing necesita de entrada un target al cual asignarle los valores
+// En este ejemplo el target será un nuevo objeto vacío
+// Y los siguientes elementos serán las fuentes (que pueden ser varios objetos)
+const nuevoObjeto = Object.assign({}, objeto1, objeto2);
+console.log(nuevoObjeto); // Output: {a: 1, b: 2, c: 3, d: 4}
+```
+
+Otro método importante es Object.freeze(). Este método congela un objeto, impidiendo que sus propiedades sean modificadas. Por ejemplo:
+```js
+const objeto = {a: 1, b: 2};
+Object.freeze(objeto);
+objeto.a = 3;
+console.log(objeto.a); // Output: 1
+```
+
+Además de Object.assign y Object.freeze, otro método importante es Object.getOwnProperties. Este método devuelve un array con todas las propiedades de un objeto que son de su propiedad, es decir, no heredadas. Por ejemplo:
+```js
+const objeto1 = {a: 1, b: 2};
+const objeto2 = Object.create(objeto1);
+objeto2.c = 3;
+console.log(Object.getOwnProperties(objeto2)); // Output: ["c"]
+```
+
+Para iterar sobre las propiedades de un objeto, se puede utilizar un bucle for-in. Por ejemplo:
+```js
+const objeto = {a: 1, b: 2, c: 3};
+for (let propiedad in objeto) {
+  console.log(propiedad); // Output: "a", "b", "c"
+}
+```
+
+Otra forma de iterar sobre las propiedades de un objeto es utilizando Object.keys() y un bucle for-of. Por ejemplo:
+```js
+const objeto = {a: 1, b: 2, c: 3};
+const propiedades = Object.keys(objeto);
+// Object.keys nos da un array con las keys del objeto
+for (let propiedad of propiedades) {
+  console.log(propiedad); // Output: "a", "b", "c"
+}
+```
+
+### Object.values().
+Este método devuelve un array con los valores de todas las propiedades de un objeto, incluyendo las heredadas. Por ejemplo:
+```js
+const objeto1 = {a: 1, b: 2};
+const objeto2 = Object.create(objeto1);
+objeto2.c = 3;
+console.log(Object.values(objeto2)); // Output: [3, 1, 2]
+```
+
+### Object.entries().
+Este método devuelve un array con los pares clave-valor de todas las propiedades de un objeto, incluyendo las heredadas. Por ejemplo:
+```js
+const objeto1 = {a: 1, b: 2};
+const objeto2 = Object.create(objeto1);
+objeto2.c = 3;
+console.log(Object.entries(objeto2)); // Output: [["c", 3], ["a", 1], ["b", 2]]
+```
+
+### hasOwnProperty().
+Este método devuelve un booleano indicando si un objeto tiene una propiedad específica que es de su propiedad, es decir, no heredada. Por ejemplo:
+```js
+const objeto1 = {a: 1, b: 2};
+const objeto2 = Object.create(objeto1);
+objeto2.c = 3;
+console.log(objeto2.hasOwnProperty("c")); // Output: true
+console.log(objeto2.hasOwnProperty("a")); // Output: false
+```
