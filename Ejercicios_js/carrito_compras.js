@@ -8,7 +8,7 @@ export class Article extends Product {
         super(name, price, quantity);
     }
     addToCart() {
-        super.show();
+  
         return `Agregando : ${this.quantity} unidades del articulo ${this.name} al carrito`
     }
 }
@@ -19,7 +19,6 @@ export class Service extends Product {
         super(name, price, quantity);
     }
     addToCart() {
-        super.show();
         return `Agregando el servicio : ${this.name} al carrito`
     }
 }
