@@ -2263,3 +2263,47 @@ class Book extends Product {
 ```
 En este ejemplo, la clase Book hereda las propiedades y métodos de la clase Product, pero también define nuevas propiedades como author y editorial y redefine el método show() para mostrar esta información adicional.
 
+## Encapsulamiento en JavaScript
+
+El ```encapsulamiento``` es uno de los principios fundamentales de la programación orientada a objetos, y se refiere a la idea de que los datos y métodos de un objeto deben estar protegidos y no deben ser accesibles directamente desde fuera del objeto.
+
+Por ejemplo, supongamos que estamos creando una aplicación de un banco en la que se necesita almacenar información sobre las cuentas de los clientes, como su número de cuenta, saldo y nombre. Podríamos definir una clase Account como una abstracción de la información de una cuenta, con propiedades como numeroCuenta, saldo y nombre.
+```js
+class Account {
+  constructor(accountNumber, balance, name) {
+    this._accountNumber = accountNumber;
+    this._balance = balance;
+    this._name = name;
+  }
+
+	deposit(amount) {
+		this._balance += amount;
+	}
+
+	withdraw(quantity) {
+		if (quantity <= this._balance) {
+			this._balance -= quantity;
+		} else {
+			console.log("Saldo insuficiente");
+		}
+	}
+
+	getBalance() {
+		return this._balance;
+	}
+}
+```
+
+En este ejemplo, las propiedades _accountNumber, _balance y _name se definen dentro del constructor con el prefijo _. Este prefijo se utiliza comúnmente para indicar que estas propiedades son privadas y no deben ser accesibles directamente desde fuera de la clase.
+
+La clase Account también define métodos públicos como deposit(), withdraw() y getBalance() que permiten interactuar con los datos privados de la cuenta. Estos métodos se pueden llamar desde fuera de la clase, pero el usuario no puede acceder directamente a las propiedades privadas de la cuenta.
+
+Por ejemplo, podríamos crear una nueva cuenta y depositar algo de dinero en ella:
+```js
+const myAccount = new Account("123456789", 1000, "Juan");
+miAccount.deposit(500);
+console.log(myAccount.getBalance()); // Output: 1500
+```
+
+En este ejemplo, el usuario no puede acceder directamente al saldo de la cuenta utilizando la propiedad _balance, sino que debe llamar al método obtenerSaldo(). Esto asegura que los datos de la cuenta estén protegidos y que el usuario solo pueda interactuar con ellos a través de la interfaz pública de la clase.
+
