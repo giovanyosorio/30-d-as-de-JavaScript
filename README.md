@@ -2373,3 +2373,6 @@ console.log(myAccount.name); // Output: Pedro
 En este ejemplo, al modificar el saldo de la cuenta utilizando el setter, primero validamos que el nuevo saldo no sea negativo antes de asignarlo a la propiedad _balance. De esta forma, nos aseguramos de que el saldo de la cuenta nunca sea negativo.
 
 También validamos que el nuevo nombre no esté vacío antes de asignarlo a la propiedad _nombre utilizando el setter correspondiente. De esta forma, nos aseguramos de que la cuenta siempre tenga un nombre válido.
+
+# Día 19
+
