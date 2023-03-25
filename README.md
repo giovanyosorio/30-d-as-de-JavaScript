@@ -2407,3 +2407,9 @@ class Perro extends Animal {
 En este ejemplo, la clase Perro hereda de la clase Animal mediante la palabra clave extends. El constructor de Perro llama al constructor de Animal utilizando la palabra clave super() para inicializar la propiedad especie. Además, Perro añade una propiedad raza y un método ladrar().
 
 Ahora podemos crear un objeto de la clase Perro y llamar a sus métodos y propiedades:
+```js
+const miPerro = new Perro('Canino', 'Labrador');
+console.log(miPerro.especie); // Canino
+miPerro.hacerSonido(); // Este animal hace un sonido
+miPerro.ladrar(); // El perro está ladrando
+```
