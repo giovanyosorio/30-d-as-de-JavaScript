@@ -2413,3 +2413,6 @@ console.log(miPerro.especie); // Canino
 miPerro.hacerSonido(); // Este animal hace un sonido
 miPerro.ladrar(); // El perro está ladrando
 ```
+Como podemos ver, miPerro hereda la propiedad especie y el método hacerSonido() de la clase Animal, y también tiene su propia propiedad raza y método ladrar().
+
+La herencia nos permite reutilizar el código existente y crear jerarquías de clases que comparten comportamiento común. También nos permite crear clases más específicas a partir de clases más generales, lo que nos permite crear código más modular y escalable.
