@@ -2392,3 +2392,15 @@ class Animal {
 }
 
 ```
+Ahora podemos crear una clase derivada Perro que hereda de la clase Animal y añade una propiedad raza y un método ladrar():
+```js
+class Perro extends Animal {
+  constructor(especie, raza) {
+    super(especie);
+    this.raza = raza;
+  }
+  ladrar() {
+    console.log('El perro está ladrando');
+  }
+}
+```
