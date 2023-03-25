@@ -2380,5 +2380,15 @@ También validamos que el nuevo nombre no esté vacío antes de asignarlo a la p
 
 La herencia en JavaScript es un concepto fundamental de la programación orientada a objetos que nos permite crear nuevas clases a partir de clases existentes, heredando todas sus propiedades y métodos. Esto nos permite reutilizar el código existente y crear jerarquías de clases que comparten comportamiento común.
 
+Aquí hay un ejemplo simple de una clase Animal que define una propiedad especie y un método hacerSonido():
+```js
+class Animal {
+  constructor(especie) {
+    this.especie = especie;
+  }
+  hacerSonido() {
+    console.log('Este animal hace un sonido');
+  }
+}
 
-
+```
