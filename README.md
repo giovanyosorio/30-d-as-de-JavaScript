@@ -2461,3 +2461,24 @@ gato.hablar(); // Miau miau!
 El polimorfismo en JavaScript es útil porque nos permite escribir código más modular y genérico, ya que podemos diseñar nuestras clases para que implementen una interfaz común, pero con comportamientos diferentes. Esto nos permite reutilizar código y aumentar la flexibilidad de nuestro programa.
 
 Además, el polimorfismo también es una técnica importante para la abstracción de datos, ya que nos permite ocultar detalles de implementación detrás de una interfaz común. Por ejemplo, si tenemos una clase Figura que tiene un método calcularArea(), podemos crear subclases como Rectángulo y Círculo que implementen el método de manera diferente, pero que todavía se comporten como una Figura. Esto nos permite abstraer la complejidad de la implementación y trabajar con objetos de manera más abstracta y genérica.
+
+
+## Patrones de diseño
+
+Los patrones de diseño son soluciones probadas y aprobadas a problemas recurrentes en la programación. Son una colección de buenas prácticas y soluciones a problemas comunes en la programación. Estos patrones se pueden aplicar a diferentes lenguajes de programación y plataformas.
+
+Los patrones de diseño se dividen en tres categorías: creacionales, estructurales y de comportamiento.
+
+### Patrones creacionales
+Los patrones de diseño creacionales son patrones de diseño que abordan el problema de cómo crear objetos y estructuras complejas en una forma organizada y escalable. Estos patrones proporcionan soluciones estándar a problemas comunes que surgen al crear objetos y estructuras, y se pueden reutilizar en diferentes situaciones. Los patrones de diseño creacionales incluyen patrones como Factory Method, Abstract Factory, Builder, Prototype, Singleton, etc. Estos patrones proporcionan una manera de encapsular la lógica de creación para hacerla más flexible, escalable y fácil de mantener.
+
+### Patrones estructurales
+Los patrones estructurales son patrones de diseño que se enfocan en cómo se combinan los objetos y las clases para formar estructuras más grandes y más complejas. Estos patrones describen cómo puede organizarse un sistema para que sea más fácil de mantener y escalar. Los patrones estructurales incluyen patrones como el Bridge, Composite, Decorator, Facade, Proxy y otros. Estos patrones ayudan a resolver problemas relacionados con la organización de un sistema, como la separación de responsabilidades, la composición de objetos y la reutilización de código.
+
+### Patrones de comportamiento
+Los patrones de diseño de comportamiento son patrones que describen la forma en que los objetos interactúan y se relacionan entre sí. Estos patrones se enfocan en la comunicación entre objetos y su colaboración para resolver tareas complejas. Los patrones de comportamiento incluyen patrones como el Chain of Responsibility, Observer, State, Strategy, Template Method, Visitor y demás. Estos patrones se utilizan para modelar la interacción entre objetos y para resolver problemas comunes en la programación orientada a objetos.
+
+### ¿Cuando utilizar patrones de diseño?
+Utilizar patrones de diseño depende de la situación y de la complejidad del problema que se esté tratando de resolver. Es importante tener en cuenta que los patrones de diseño no son soluciones mágicas y que no se deben aplicar sin antes comprender y analizar el problema a resolver. En algunos casos, el uso de patrones de diseño puede complicar la solución y hacer que el código sea más difícil de mantener y entender.
+
+Los patrones de diseño se pueden implementar a través de clases, funciones, objetos literales, y otras estructuras de programación. La implementación específica depende del lenguaje de programación y de la plataforma utilizada. Es importante destacar que, aunque la implementación puede variar, la solución y la estructura básica del patrón se mantienen constantes.
