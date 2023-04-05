@@ -6,4 +6,4 @@ function calcSum(numbers) {
     // console.log(numbers.reduce((count, item) => count + item, 0));
 }
 
-calcSum([])
+calcSum([2, 4, 8])
