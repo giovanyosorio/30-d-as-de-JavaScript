@@ -2598,3 +2598,121 @@ En este caso, se crea una clase PersonFactory con un método createPerson() que 
 El patrón Factory es útil en situaciones en las que se necesita crear objetos con diferentes propiedades y métodos sin tener que especificar la clase exacta de dicho objeto. Por ejemplo, en una aplicación de comercio electrónico, podríamos utilizar Factory para crear objetos Producto con diferentes atributos como nombre, precio, descripción y categoría, y utilizar la fábrica para crear objetos Producto específicos para cada producto en nuestro catálogo de productos.
 
 Además, el patrón Factory también es útil cuando se desea ocultar la implementación detrás de la creación de objetos. Por ejemplo, si estamos trabajando con una biblioteca de terceros y queremos crear objetos de una clase determinada, podemos utilizar una fábrica para crear objetos en lugar de tener que conocer la implementación detrás de la creación de objetos en la biblioteca de terceros.
+
+# Día 22
+
+## Adapter y Decorator pattern en JavaScript
+
+### Adapter pattern
+
+El patrón Adapter permite que dos objetos con interfaces incompatibles trabajen juntos. Este patrón se aplica cuando queremos utilizar una clase existente en un sistema, pero su interfaz no cumple con las necesidades de nuestro código.
+
+En JavaScript, podemos implementar el patrón Adapter creando un objeto intermedio que actúe como intermediario entre la clase existente y nuestro código. Este objeto adapter tendrá una interfaz que cumpla con las necesidades de nuestro código y que se comunique con la clase existente mediante la adaptación de sus métodos y propiedades.
+
+Ejemplo de aplicación en JavaScript:
+
+Supongamos que tenemos una clase “Auto” con un método “encender” que recibe un parámetro “llave”. Sin embargo, necesitamos que este método se ejecute sin recibir un parámetro. Para ello, podemos crear un adapter que se encargue de llamar al método “encender” con el parámetro adecuado.
+
+```js
+class Auto {
+	encender(llave) {
+		console.log('El auto ha sido encendido con la llave:', llave);
+	}
+}
+
+class AutoAdapter {
+	constructor(auto) {
+		this.auto = auto;
+	}
+
+	encender() {
+		this.auto.encender('predeterminada');
+	}
+}
+
+const miAuto = new Auto();
+const adapter = new AutoAdapter(miAuto);
+
+adapter.encender(); // El auto ha sido encendido con la llave: predeterminada
+```
+
+En este ejemplo, creamos una clase “AutoAdapter” que recibe un objeto “auto” y que tiene un método “encender” que llama al método “encender” del objeto “auto” pasándole un parámetro predeterminado. De esta manera, podemos utilizar la clase “AutoAdapter” en nuestro código sin tener que preocuparnos por la recibir un parámetro en el método “encender”.
+
+Otro ejemplo de aplicación del patrón Adapter en JavaScript es cuando deseamos integrar diferentes bibliotecas o componentes en nuestra aplicación. Por ejemplo, podemos tener un componente que utiliza un formato de fecha diferente al que esperamos en nuestra aplicación. Podemos crear una clase adaptadora que proporcione una interfaz compatible con lo que esperamos:
+
+```js
+class FechaAdaptador {
+	constructor(fecha) {
+		this.fecha = fecha;
+	}
+	obtenerFechaFormateada() {
+		return this.fecha.toLocaleDateString();
+	}
+}
+
+const fecha = new Date();
+const fechaAdaptada = new FechaAdaptador(fecha);
+console.log(fechaAdaptada.obtenerFechaFormateada()); 
+// Formatea la fecha al formato deseado
+```
+De esta manera, podemos integrar componentes externos en nuestra aplicación sin tener que cambiar su comportamiento original. Además, esto también permite mantener la flexibilidad y reutilización de código, ya que podemos reutilizar la clase adaptadora en diferentes partes de nuestra aplicación.
+
+Podemos usar el patrón Adapter en JavaScript cuando queremos utilizar una biblioteca externa en nuestro código, pero su interfaz no cumple con las necesidades de nuestro código. En este caso, podemos crear un adapter que se encargue de realizar la adaptación necesaria para que podamos utilizar la biblioteca de manera efectiva.
+
+En resumen, el patrón Adapter permite adaptar la interfaz de un objeto a otra interfaz que es esperada por el cliente. Esto se logra creando una clase adaptadora que proporcione una interfaz compatible con la que espera el cliente. Este patrón es útil cuando deseamos integrar componentes externos o diferentes bibliotecas en nuestra aplicación de manera eficiente y flexible
+
+### Decorator pattern
+
+
+El Patrón Decorador en JavaScript permite añadir responsabilidades a un objeto dinámicamente en tiempo de ejecución. Este patrón permite que la funcionalidad se agregue o modifique sin tener que modificar el código subyacente. Esto se logra creando objetos que envuelven al objeto original y proporcionan la nueva funcionalidad.
+
+La aplicación del Patrón Decorador en JavaScript se puede lograr a través de la creación de clases decoradoras. Las clases decoradoras deben tener una estructura similar a la clase que desean decorar y deben invocar a la clase original para proporcionar la funcionalidad adicional.
+
+Ejemplo de aplicación del Patrón Decorador en JavaScript:
+```js
+// Clase base
+class Bebida {
+	precio() {
+		return 0;
+	}
+}
+
+// Clase Decoradora
+class AgregadoLeche extends Bebida {
+	constructor(bebida) {
+		super();
+		this.bebida = bebida;
+	}
+
+	precio() {
+		return this.bebida.precio() + 0.5;
+	}
+}
+
+// Clase Decoradora
+class AgregadoChocolate extends Bebida {
+	constructor(bebida) {
+		super();
+		this.bebida = bebida;
+	}
+
+	precio() {
+		return this.bebida.precio() + 1;
+	}
+}
+
+// Uso
+const bebida = new Bebida();
+console.log(bebida.precio()); // 0
+
+const bebidaConLeche = new AgregadoLeche(bebida);
+console.log(bebidaConLeche.precio()); // 0.5
+
+const bebidaConLecheYChocolate = new AgregadoChocolate(bebidaConLeche);
+console.log(bebidaConLecheYChocolate.precio()); // 1.5
+```
+En este ejemplo, creamos una clase base llamada “Bebida” con un método precio que devuelve 0. Luego creamos dos clases decoradoras llamadas “AgregadoLeche” y “AgregadoChocolate” que envuelven a la clase base “Bebida” y proporcionan una nueva funcionalidad. Finalmente, creamos objetos a partir de estas clases y vemos el resultado de invocar el método precio.
+
+El Patrón Decorador es útil en situaciones en las que queremos añadir o modificar la funcionalidad de un objeto de manera dinámica y sin tener que modificar su código subyacente. Por ejemplo, podemos usar este patrón en sistemas de personalización de productos en los que los usuarios pueden seleccionar diferentes opciones o características adicionales para un producto. En este caso, cada opción o característica adicional sería un decorador que se aplicaría al objeto producto original para proporcionar la nueva funcionalidad.
+
+Otro ejemplo de aplicación del Patrón Decorador puede ser en la creación de componentes de interface de usuario en los que se desea agregar diferentes estilos o funcionalidades adicionales a un componente base. En este caso, cada estilo o funcionalidad adicional sería un decorador que se aplicaría al componente base para proporcionar la nueva funcionalidad.
