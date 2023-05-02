@@ -2716,3 +2716,195 @@ En este ejemplo, creamos una clase base llamada “Bebida” con un método prec
 El Patrón Decorador es útil en situaciones en las que queremos añadir o modificar la funcionalidad de un objeto de manera dinámica y sin tener que modificar su código subyacente. Por ejemplo, podemos usar este patrón en sistemas de personalización de productos en los que los usuarios pueden seleccionar diferentes opciones o características adicionales para un producto. En este caso, cada opción o característica adicional sería un decorador que se aplicaría al objeto producto original para proporcionar la nueva funcionalidad.
 
 Otro ejemplo de aplicación del Patrón Decorador puede ser en la creación de componentes de interface de usuario en los que se desea agregar diferentes estilos o funcionalidades adicionales a un componente base. En este caso, cada estilo o funcionalidad adicional sería un decorador que se aplicaría al componente base para proporcionar la nueva funcionalidad.
+
+## Builder y Protype pattern en JavaScript
+
+### Builder pattern
+
+El patrón Builder permite construir objetos complejos a partir de objetos más simples, como si fuera un “paso a paso”. Este patrón es muy útil en situaciones donde los objetos a construir tienen muchos atributos o propiedades que deben ser configurados antes de su creación.
+
+Lo interesante está en que consiste en separar la complejidad durante la construcción de un objeto de su representación de manera que con el mismo constructor puedas crear diferentes representaciones.
+
+En JavaScript, podemos aplicar el patrón Builder mediante la creación de una clase constructora que se encarga de construir objetos complejos a partir de una serie de objetos más simples.
+
+Ejemplo de aplicación:
+```js
+class ProductBuilder {
+	constructor() {
+		this.name = '';
+		this.price = 0;
+		this.description = '';
+	}
+
+	setName(name) {
+		this.name = name;
+		return this;
+	}
+
+	setPrice(price) {
+		this.price = price;
+		return this;
+	}
+
+	setDescription(description) {
+		this.description = description;
+		return this;
+	}
+
+	build() {
+		return {
+		name: this.name,
+		price: this.price,
+		description: this.description
+		};
+	}
+}
+
+const product = new ProductBuilder()
+	.setName('Laptop')
+	.setPrice(1000)
+	.setDescription('Con esta laptop puedes nunca paras de aprender')
+	.build();
+
+console.log(product); 
+// { 
+// name: 'Laptop', 
+// price: 1000,
+// description: 'Con esta laptop puedes nunca paras de aprender' 
+// }
+```
+En este ejemplo, creamos una clase ProductBuilder que tiene métodos para establecer los atributos de un producto, como el nombre, el precio y la descripción. Luego, utilizamos el método build() para construir el objeto final y retornarlo.
+
+De esta manera es mucho más clara la creación de una instancia de la clase. Si lo comparamos con la manera tradicional, tendríamos algo como lo siguiente
+```js
+class ProductBuilder {
+	constructor(name, price, description) {
+		this.name = name;
+		this.price = price;
+		this.description = description;
+	}
+}
+
+const product = new ProductBuilder("Laptop", 1000, "Con esta laptop puedes nunca paras de aprender")
+
+console.log(product); 
+// { 
+// name: 'Laptop', 
+// price: 1000,
+// description: 'Con esta laptop puedes nunca paras de aprender' 
+// }
+```
+
+Aunque es mucho menos código y obtenemos el mismo resultado, el mantener este código en un futuro se volverá más complicado debido a que muy poco descriptivo el tener un método constructor al cual le estamos agregando datos arbitrarios.
+
+Otro ejemplo de aplicación del patrón Builder en JavaScript es en la construcción de formularios dinámicos. Por ejemplo, podemos tener una clase FormBuilder que nos permita construir formularios complejos a partir de objetos más simples, como inputs, botones, etc.
+
+```js
+class FormBuilder {
+	constructor() {
+		this.elements = [];
+	}
+
+	addInput(type, name, value) {
+		this.elements.push({
+			type: 'input',
+			name: name,
+			value: value
+		});
+		return this;
+	}
+
+	addButton(text) {
+		this.elements.push({
+			type: 'button',
+			text: text
+		});
+		return this;
+	}
+
+	build() {
+		let form = '';
+		this.elements.forEach(element => {
+			if (element.type === 'input') {
+				form += `${element.type}" name="${element.name}" value="${element.value}">`;
+			} else if (element.type === 'button') {
+				form += `${element.text}`;
+			}
+		});
+		form += ''
+;
+		return form;
+	}
+}
+
+const form = new FormBuilder()
+	.addInput('text', 'username', '')
+	.addInput('password', 'password', '')
+	.addButton('Submit')
+	.build();
+
+console.log(form); 
+
+/* 
+
+	
+
+	
+
+	Submit
+
+*/
+```
+
+En este ejemplo, creamos una clase FormBuilder que tiene métodos para agregar diferentes elementos a un formulario, como inputs y botones. Luego, utilizamos el método build() para construir el formulario y retornarlo como una cadena de texto con el código HTML correspondiente. Cabe aclarar que este código puede ser mejorado agregando las labels y haciendolo mucho más accesible.
+
+### Prototype Pattern
+
+El patrón Prototype es un patrón de diseño que se utiliza para crear objetos a partir de un modelo o prototipo previamente definido. Este patrón es útil cuando queremos crear muchos objetos similares, ya que podemos clonar el prototipo en lugar de crear objetos desde cero cada vez.
+
+Ejemplo de aplicación del patrón Prototype en JavaScript:
+
+```js
+function Animal(name, species) {
+	this.name = name;
+	this.species = species;
+}
+
+Animal.prototype.makeSound = function () {
+	console.log(`El animal ${this.name} hace un sonido`);
+};
+
+const dog = new Animal('Fido', 'Perro');
+console.log(dog.name); // Fido
+console.log(dog.species); // Perro
+dog.makeSound(); // El animal hace un sonido
+ ```
+
+En este ejemplo, creamos una función constructora Animal que tiene dos propiedades: name y species. Luego, agregamos un método makeSound a la propiedad prototype de la función constructora Animal. De esta manera, todos los objetos creados a partir de la función constructora tendrán acceso a este método.
+
+Otro ejemplo de aplicación del patrón Prototype en JavaScript es en la creación de objetos basados en plantillas. Por ejemplo, podemos tener una plantilla de objeto “Persona” con propiedades como nombre, edad y ocupación, y luego clonar esta plantilla para crear objetos de personas individuales.
+ ```js
+function Persona(nombre, edad, ocupacion) {
+	this.nombre = nombre;
+	this.edad = edad;
+	this.ocupacion = ocupacion;
+}
+
+const plantillaPersona = new Persona('', 0, '');
+
+const persona1 = Object.create(plantillaPersona);
+persona1.nombre = 'Juan';
+persona1.edad = 30;
+persona1.ocupacion = 'Desarrollador';
+
+const persona2 = Object.create(plantillaPersona);
+persona2.nombre = 'María';
+persona2.edad = 25;
+persona2.ocupacion = 'Doctora';
+
+console.log(persona1.nombre); // Juan
+console.log(persona2.nombre); // María
+ ```
+ En conclusión, el patrón Prototype es una técnica muy útil en JavaScript para crear objetos similares de manera eficiente y organizada. Al utilizar la propiedad prototype de las funciones constructoras, podemos ahorrar tiempo y líneas de código al clonar objetos en lugar de crearlos desde cero cada vez. Además, el patrón Prototype también es útil en la creación de objetos basados en plantillas, donde podemos clonar una plantilla de objeto y luego personalizar las propiedades individuales de cada objeto creado.
+
+
