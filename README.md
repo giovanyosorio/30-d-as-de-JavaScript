@@ -2908,3 +2908,184 @@ console.log(persona2.nombre); // María
  En conclusión, el patrón Prototype es una técnica muy útil en JavaScript para crear objetos similares de manera eficiente y organizada. Al utilizar la propiedad prototype de las funciones constructoras, podemos ahorrar tiempo y líneas de código al clonar objetos en lugar de crearlos desde cero cada vez. Además, el patrón Prototype también es útil en la creación de objetos basados en plantillas, donde podemos clonar una plantilla de objeto y luego personalizar las propiedades individuales de cada objeto creado.
 
 
+# Día 23
+
+## Facade y proxy pattern en JavaScript
+
+### Facade pattern
+
+El Patrón Facade (o fachada en español) en JavaScript es un patrón de diseño que proporciona una interfaz simplificada para un sistema complejo. Este patrón oculta la complejidad del sistema subyacente detrás de una interfaz sencilla y fácil de usar. La idea detrás del patrón Fachada es crear un objeto que actúe como intermediario entre el cliente y el sistema subyacente, simplificando el acceso y la interacción con este último.
+
+Esto se de lo más común cuando usas librerías o frameworks externos, por ejemplo en web algunos frameworks como React, nos dan todas las herramientas para crear aplicaciones web de manera super rápida y sencilla, utilizando abstracciones como lo son sus react hooks para trabajar con temas complejos como la reactividad. Sin irnos tan lejos, las librerías de componentes como MUI, la cual nos da una serie de componentes a los cuales solo le tenemos que pasar algunos argumentos para que nos devuelva elementos HTML estilizados.
+
+Aplicar el Patrón Fachada en JavaScript es muy sencillo. Basta con crear un objeto que actúe como intermediario entre el cliente y el sistema subyacente. Este objeto debe proporcionar una interfaz simplificada para el sistema subyacente y ocultar su complejidad.
+
+Ejemplo de aplicación del Patrón Fachada en JavaScript:
+
+
+```js
+// Sistema subyacente
+class SistemaComplejo {
+	metodo1() {
+		console.log("Imagina que aquí hay mucho código complejo");
+	}
+
+	metodo2() {
+		console.log("Imagina que aquí hay mucho código complejo, pero en otro método");
+	}
+	
+}
+
+// Fachada
+class FacadeSystem{
+	constructor() {
+		this.sistemaComplejo = new SistemaComplejo();
+	}
+
+	metodoFacil() {
+		this.sistemaComplejo.metodo1();
+		this.sistemaComplejo.metodo2();
+	}
+}
+
+// Uso
+const fachada = new FacadeSystem();
+fachada.metodoFacil();
+// Salida:
+// Imagina que aquí hay mucho código complejo
+// Imagina que aquí hay mucho código complejo, pero en otro método
+```
+En este ejemplo, creamos un sistema subyacente complejo llamado “SistemaComplejo” que tiene dos métodos. Luego creamos una clase “FachadaSistema” que actúa como intermediario entre el cliente y el sistema subyacente. Finalmente, creamos un objeto de la clase “FachadaSistema” y vemos el resultado de invocar su método fácil.
+
+### Proxy pattern
+
+
+El Patrón Proxy en JavaScript es un patrón de diseño que proporciona un middleware (o intermediario) para otro objeto para controlar el acceso a él. El objeto proxy actúa como un intermediario entre el cliente y el objeto real, interceptando y controlando las operaciones realizadas sobre el objeto real.
+
+Si nos vamos al lado del backend, estos middlewares son de lo más común con ExpressJS (por ejemplo). Express es un framework para desarrollar API de NodeJS, y una de las características que tiene es el uso de Middlewares. Los middlewares no son más que piezas de código que podemos hacer que se ejecuten antes, en el medio o después de que cualquier solicitud llegue a nuestros puntos finales
+
+El Patrón Proxy se puede implementar de varias maneras en JavaScript, una de ellas es utilizando funciones proxy, que permiten interceptar y controlar el acceso a un objeto. Las funciones proxy reciben un objeto y un manejador como argumentos, y actúan como un intermediario para el objeto, delegando las operaciones a él.
+
+Ejemplo con proxys:
+
+```js
+
+// Objeto original
+const objetoReal = {
+	nombre: 'Objeto Real',
+	descripcion: 'Este es el objeto real'
+};
+
+// Función proxy
+const proxy = new Proxy(objetoReal, {
+
+	get(target, prop) {
+		console.log(`Accediendo a la propiedad "${prop}"`);
+		return target[prop];
+	},
+
+	set(target, prop, value) {
+		console.log(`Estableciendo valor ${value}" en la propiedad "${prop}"`);
+		target[prop] = value;
+		return true;
+	}
+});
+// Uso
+
+console.log(proxy.nombre); 
+// Accediendo a la propiedad "nombre" / "Objeto Real"
+
+proxy.descripcion = 'Nueva descripción'; 
+// Estableciendo valor "Nueva descripción" en la propiedad "descripcion"
+
+console.log(proxy.descripcion); 
+// Accediendo a la propiedad "descripcion" / "Nueva descripción"
+
+```
+
+En este ejemplo, creamos un objeto real con dos propiedades, “nombre” y “descripcion”. Luego creamos una función proxy que actúa como intermediario para el objeto real, interceptando y controlando las operaciones de lectura y escritura realizadas sobre él. Finalmente, hacemos uso del objeto proxy y vemos cómo se muestran los mensajes de acceso a las propiedades y la actualización de sus valores.
+
+Otra manera de hacer uso del patrón Proxy es usando clases. Por ejemplo, cuando queremos controlar el acceso a una clase o objeto en base a una condición. Suponiendo que tenemos una clase Product que representa un producto en una tienda virtual con los siguientes atributos: name, price y available.
+
+```js
+class Product {
+  constructor(name, price, available) {
+    this.name = name;
+    this.price = price;
+    this.available = available;
+  }
+}
+```
+
+Si queremos controlar el acceso a los productos en base a si el usuario está registrado o no, podemos utilizar un proxy. Para ello, crearemos una clase ProductProxy que actúe como intermediario entre los clientes y los productos.
+
+```js
+
+class ProductProxy {
+  constructor(product, user) {
+    this.product = product;
+    this.user = user;
+  }
+
+  getName() {
+    return this.product.name;
+  }
+
+  getPrice() {
+    return this.product.price;
+  }
+
+  isAvailable() {
+    return this.product.available;
+  }
+
+  buy() {
+    if (this.user.isRegistered) {
+      this.product.buy();
+    } else {
+      console.log("Error: el usuario no está registrado");
+    }
+  }
+}
+
+```
+La clase ProductProxy tiene un atributo product que es la instancia del objeto original, un atributo user que representa al usuario y los métodos getName, getPrice, isAvailable y buy. El método buy se encarga de controlar el acceso a los productos en base a si el usuario está registrado o no.
+
+Otro ejemplo de uso del patrón Proxy en Javascript es cuando queremos crear una versión simplificada de un objeto complejo. Por ejemplo, supongamos que tenemos un objeto complejo como el siguiente:
+
+
+```js
+
+const complexObject = {
+  prop1: "value1",
+  prop2: "value2",
+  prop3: {
+    nestedProp1: "nestedValue1",
+    nestedProp2: "nestedValue2",
+		nestedProp3: {
+			deeplyNestedProp1: "deeplyNestedValue1",
+			deeplyNestedProp2: "deeplyNestedValue2"
+		}
+	},
+	prop4: "value4",
+	prop5: "value5"
+};
+
+```
+Si queremos simplificar el acceso a los valores dentro de este objeto complejo, podemos crear un proxy que permita acceder directamente a los valores que necesitamos. Por ejemplo:
+```js
+const simpleObjectProxy = new Proxy(complexObject, {
+  get(target, prop) {
+    if (prop in target) {
+      return target[prop];
+    }
+    return null;
+  }
+});
+
+console.log(simpleObjectProxy.prop1); 
+// "value1"
+console.log(simpleObjectProxy.prop3.nestedProp3.deeplyNestedProp1); 
+// "deeplyNestedValue1"
+// De esa manera nos saltamos el acceder a prop3
+```
