@@ -3454,3 +3454,101 @@ Ejemplo: La representación de un mapa de ciudad con calles y avenidas.
 Estas estructuras de datos pueden ser implementadas en diferentes situaciones dependiendo de la necesidad, por ejemplo, en aplicaciones web, sistemas de información, bases de datos, entre otros.
 
 En resumen, las estructuras de datos son una herramienta esencial en la programación y nos permiten organizar y manipular datos de una manera eficiente y efectiva.
+
+
+## Hash tables en JavaScript
+
+### ¿Qué es una hash table?
+
+Las hash tables son estructuras de datos que permiten almacenar pares clave-valor y acceder a ellos de manera eficiente. La idea detrás de las hash tables es usar una función matemática llamada “función hash” para asignar a cada clave un índice en un arreglo.
+
+El funcionamiento de las hash tables se basa en dos componentes: la función hash y los buckets. La función hash es una función matemática que recibe una clave y la convierte en un índice en el arreglo. Los buckets son celdas en el arreglo donde se almacenan los valores. Cada bucket está asociado a una clave y contiene un valor.
+
+La función hash es importante porque debe asegurarse de que la misma clave siempre produzca el mismo índice, de lo contrario, se perderá la capacidad de acceder a un valor rápidamente. Además, la función hash debe ser lo suficientemente eficiente para procesar un gran número de claves.
+
+Las operaciones más comunes en una Hash Table son la inserción, búsqueda y eliminación de elementos.
+
+#### Complejidad algorítmica
+
+Si medimos la complejidad de los métodos de la hash table con Big o notation, podremos notar que es de lo más eficiente. Debido a que siempre se mantiene constante.
+
+Hay distintas formas de crear e implementar una hash table en JavaScript, por lo que a continuación te enseñaré una manera para crear una con todos sus métodos.
+
+```js
+class HashTable {
+  constructor(size) {
+		// Dentro del constructor se inicializa un array con un tamaño arbitrario
+		// Para asignarlo como el tamaño total de buckets en nuestra hashTable
+    this.buckets = new Array(size);
+    this.numBuckets = this.buckets.length;
+  }
+
+  hash(key) {
+		// Esta función toma una "key" (puede ser una cadena, número, etc.)
+		// Para poder calcular el índice del bucket donde el valor será almacenado
+    let total = 0;
+		// En este caso el algoritmo para crear un hash es muy sencillo
+
+		// Para calcular el hash, se suman los valores ASCII de cada caracter de la key 
+		// y se toma el resto de la división de esta suma entre el total de buckets.
+    for (let i = 0; i < key.length; i++) {
+			
+      total += key.charCodeAt(i);
+    }
+    return total % this.numBuckets;
+  }
+
+  insert(key, value) {
+		// Este método toma una key y un value, y los almacena en la hash table
+		// Primero se calcula el índice usando la función hash
+    let index = this.hash(key);
+		
+		// si ese bucket no existe, se inicializa como un array vacío.
+    if (!this.buckets[index]){
+			 this.buckets[index] = [];
+		}
+
+		// Luego se agrega un arreglo con la key y el value al bucket
+    this.buckets[index].push([key, value]);
+  }
+
+  get(key) {
+		// Esta función toma una key y retorna el valor almacenado en la hash table
+		// Primero se calcula el índice usando la función hash
+    let index = this.hash(key);
+
+		// si ese bucket no existe, se retorna null.
+    if (!this.buckets[index]){
+			return null
+		}
+
+		// Si el bucket existe, se recorre el array en busca de un arreglo 
+		// que tenga la key especificada
+    for (let i = 0; i < this.buckets[index].length; i++) {
+		
+			// Si se encuentra ese bucket, se retorna su value correspondiente. 
+      if (this.buckets[index][i][0] === key) {
+        return this.buckets[index][i][1];
+      }
+    }
+
+		//Si no se encuentra la key, se retorna null.
+    return null;
+  }
+
+  retrieveAll() {
+		// Esta función retorna un array con todos los valores almacenados
+		// Se recorren todos los buckets y, si existen, se agrega cada value a un array
+    let allValues = [];
+    for (let i = 0; i < this.numBuckets; i++) {
+      if (this.buckets[i]) {
+        for (let j = 0; j < this.buckets[i].length; j++) {
+          allValues.push(this.buckets[i][j][1]);
+				}
+			}
+		}
+		// Para finalmente retornarlo.
+		return allValues;
+	}
+}
+```
